@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sirbaluu.github.io/super-daily/sitemap.xml

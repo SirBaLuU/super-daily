@@ -1,4 +1,4 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https: wss:; media-src 'self' data: blob:; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#14161c"><meta name="description" content="Tägliche Rate-Spiele, Quiz-Duelle und Arena-Shooter mit Freunden – nur per Link."><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png"><style>body{margin:0}[hidden]{display:none!important}</style><script>window.__I18NV="1791270552"</script></head><body><title>Dle-Arena</title>
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https: wss:; media-src 'self' data: blob:; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#14161c"><title>Super Daily – tägliche Rate-Spiele: Loldle, Pokémon, Naruto, One Piece, Valorant, Wordle</title><meta name="description" content="Super Daily: jeden Tag neue Rate-Spiele – League of Legends, Pokémon, Naruto, One Piece, Bleach, Dragon Ball, Valorant, Clash Royale, Fortnite, R6 und Wordle in 4 Sprachen. Quiz-Duelle und Arena mit Freunden, nur per Link."><meta property="og:title" content="Super Daily – tägliche Rate-Spiele"><meta property="og:description" content="Loldle, Pokémon, Naruto, One Piece, Wordle und mehr – jeden Tag neu, mit Freunden per Link."><meta property="og:type" content="website"><meta property="og:url" content="https://sirbaluu.github.io/super-daily/"><link rel="canonical" href="https://sirbaluu.github.io/super-daily/"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png"><style>body{margin:0}[hidden]{display:none!important}</style><script>window.__I18NV="1791271179"</script></head><body><title>Dle-Arena</title>
 <style id="fonts">@font-face{font-family:'Chakra Petch';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/chakra-petch-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Chakra Petch';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/chakra-petch-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'Chakra Petch';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/chakra-petch-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
@@ -787,6 +787,51 @@ html:root[data-theme] .board .head .meta,html:root[data-theme] .board .legend{co
 .mtxt{font-size:38px;letter-spacing:.04em;text-shadow:0 0 18px color-mix(in srgb,var(--c) 80%,transparent),0 3px 0 rgb(0 0 0 / .5)}
 @media (prefers-reduced-motion:reduce){.mcard .trophy,.mcard .trophy .rays,.mcard .trophy .tw{animation:none}}
 </style>
+<style>
+/* v23: Wordle */
+:root[data-theme="wordle"]{--c:#3ddc84;--bg:#0a0d12;--page-bg:radial-gradient(120% 70% at 50% -10%,#123a2a 0%,#0a0d12 55%,#06080c 100%)}
+.wdv{display:flex;flex-direction:column;align-items:center;gap:14px;padding:6px 0 30px}
+.wdv[hidden]{display:none}
+.wdhead{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.wdhead h2{font-family:var(--f-display);font-size:clamp(30px,6vw,44px);letter-spacing:.12em;text-transform:uppercase;color:#fff;text-shadow:0 0 18px rgb(61 220 132 / .6)}
+.wdhead p{margin:0;color:#aab4c4;font-size:14px}
+.wdbar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center}
+.wdseg{display:inline-flex;border:1px solid rgb(255 255 255 / .14);border-radius:12px;overflow:hidden;background:rgb(10 13 20 / .8)}
+.wdseg button{border:0;background:transparent;color:#cfd7e4;padding:7px 12px;font-weight:700;font-size:13px}
+.wdseg button[aria-pressed="true"]{background:linear-gradient(135deg,#7ef0b0,#3ddc84);color:#04120a}
+.wdseg button:disabled{opacity:.45}
+.wdgrid{display:grid;gap:6px;margin-top:4px}
+.wdrow{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.wdrow.shake{animation:wdshake .4s}
+@keyframes wdshake{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+.wdt{width:min(15vw,62px);aspect-ratio:1;display:grid;place-items:center;border:2px solid #3a4150;border-radius:8px;font-family:var(--f-display);font-size:min(8vw,32px);font-weight:700;color:#fff;text-transform:uppercase;background:rgb(8 10 16 / .6);user-select:none}
+.wdt.f{border-color:#7d889b;animation:wdpop .12s}
+@keyframes wdpop{50%{transform:scale(1.1)}}
+.wdt.ok,.wdt.part,.wdt.bad{border-color:transparent;animation:wdflip .5s both;animation-delay:calc(var(--i) * .18s)}
+.wdt.ok{background:var(--ok);box-shadow:0 0 16px -4px var(--ok)}.wdt.part{background:var(--part)}.wdt.bad{background:#3a4150}
+.wdt.old{animation:none}
+@keyframes wdflip{0%{transform:rotateX(0)}49%{transform:rotateX(90deg);background:rgb(8 10 16 / .6);border-color:#7d889b}50%{transform:rotateX(90deg)}100%{transform:none}}
+.wdkb{display:flex;flex-direction:column;gap:7px;width:min(100%,560px);margin-top:6px}
+.wdkr{display:flex;gap:5px;justify-content:center}
+.wdk{flex:1;min-width:0;max-width:46px;height:54px;border:0;border-radius:8px;background:#818aa0;color:#fff;font-weight:800;font-size:15px;text-transform:uppercase;transition:transform .08s}
+.wdk:active{transform:scale(.94)}
+.wdk.wide{flex:1.6;max-width:76px;font-size:12px}
+.wdk.ok{background:var(--ok)}.wdk.part{background:var(--part)}.wdk.bad{background:#2a303c;color:#8a93a5}
+.wdmsg{min-height:22px;font-weight:700;color:#fff}
+.wdend{display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 18px;border-radius:16px;background:rgb(10 13 20 / .85);border:1px solid rgb(61 220 132 / .45);box-shadow:0 0 30px -12px #3ddc84}
+.wdend b.w{font-family:var(--f-display);font-size:26px;letter-spacing:.14em;color:#3ddc84}
+.wdnote{font-size:12px;color:#7d889b;text-align:center;max-width:560px}
+.hc.wd .im{display:grid;place-items:center;background:radial-gradient(circle,#173b2a,#0a0d12)}
+.wdlogo{display:flex;gap:2px}.wdlogo i{font-style:normal;width:22px;height:22px;display:grid;place-items:center;border-radius:4px;font-weight:900;font-size:13px;color:#fff;background:#3a4150}
+.wdlogo i:first-child{background:#25a85c}.wdlogo i:nth-child(2){background:#e39b1b}
+.chip.wordlechip{--gc:#3ddc84}
+</style>
+<style>
+/* v24: Bedienung */
+#homelink{color:inherit;text-decoration:none}#homelink:hover{filter:brightness(1.2)}
+.diffseg button[data-diff="easy"][aria-pressed="true"]{background:linear-gradient(135deg,#7ef0b0,#3ddc84)!important;color:#04120a!important}
+.diffseg button[data-diff="hard"][aria-pressed="true"]{background:linear-gradient(135deg,#ff8a80,#ef4444)!important;color:#fff!important}
+</style>
 
 <div class="scene" id="scene" aria-hidden="true"></div>
 <div class="collage" id="collage" aria-hidden="true"></div>
@@ -794,7 +839,7 @@ html:root[data-theme] .board .head .meta,html:root[data-theme] .board .legend{co
 <div class="wm" id="wm" aria-hidden="true"></div>
 <div class="wrap" lang="de">
   <header class="top">
-    <h1>Dle<span>-</span>Arena</h1>
+    <h1><a href="./" id="homelink" title="Zur Startseite">Dle<span>-</span>Arena</a></h1>
     <div class="hud" id="hud" aria-label="Dein Fortschritt">
       <button class="hp hstreak" type="button" data-act="stats" title="Serie: Tage in Folge mit mindestens einem gelösten Tagesrätsel oder Tagesquiz"><svg class="fl" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.6 1.8c.9 3.6-1.9 5.3-1.9 8 0 1.5 1.1 2.6 2.4 2.6 1.7 0 2.6-1.4 2.3-3.3 2.5 1.8 4.2 4.6 4.2 7.6 0 4-3.3 6.9-7.6 6.9S4.4 20.7 4.4 16.8c0-5.6 6.4-8.7 8.2-15z"/></svg><b id="hstreak">0</b></button>
       <button class="hp hlv" type="button" data-act="stats" title="Level und Erfahrungspunkte (XP)"><span class="lvb">Lv <b id="hlv">1</b></span><span class="xpb"><i id="hxp"></i></span></button>
@@ -826,6 +871,7 @@ html:root[data-theme] .board .head .meta,html:root[data-theme] .board .legend{co
   <nav class="games" id="games" aria-label="Spiel wählen"></nav>
   <section class="landing" id="landing" hidden></section>
   <section class="quizv" id="quiz" hidden></section>
+  <section class="wdv" id="wordle" hidden></section>
   <section class="quizv" id="live" hidden></section>
   <main class="board" id="board"></main>
   <details>
@@ -962,7 +1008,7 @@ const I18N = (() => {
     if (l !== "de" && !d && !HARVEST) { l = "de"; }
     lang = l; D = d; cache.clear();
     document.documentElement.lang = l === "bks" ? "bs" : l === "zh" ? "zh-Hans" : l;
-    rewalk(document.body); document.title = tr("Dle-Arena");
+    rewalk(document.body); document.title = "Super Daily – " + tr("Tägliche Rate-Spiele") + " · Wordle · Dle-Arena";
     if (after) after();
   }
   return {
@@ -1464,7 +1510,9 @@ function compare(col, gv, tv, target) {
     case "fruit": return gv === tv ? "ok" : (/Zoan/.test(gv) && /Zoan/.test(tv) ? "part" : "bad");
   }
 }
-const arrow = (col, gv, tv) => (col.t === "num" || col.t === "ord") && gv !== tv ? (tv > gv ? "▲" : "▼") : "";
+const DIFF = () => store.diff || "normal";
+const arrow = (col, gv, tv) => DIFF() !== "hard" && (col.t === "num" || col.t === "ord") && gv !== tv ? (tv > gv ? "▲" : "▼") : "";
+const hintAfter = h => DIFF() === "easy" ? Math.max(2, h.after - 2) : DIFF() === "hard" ? h.after + 3 : h.after;
 const show = (col, v, c) => col.show ? col.show(v, c) : (Array.isArray(v) ? (v.length ? v.join(", ") : "Keine") : v);
 const emoji = r => (store.cb ? { ok: "🟧", part: "🟦", bad: "⬛" } : { ok: "🟩", part: "🟨", bad: "🟥" })[r];
 
@@ -1541,7 +1589,7 @@ function P() {
   return p;
 }
 const quizDoneToday = () => { try { const d = QS().matches["T" + today.replace(/-/g, "")]; return !!(d && !nextAct(d)); } catch (e) { return false; } };
-const dailyDone = () => GAMES.reduce((a, g) => a + modesOf(g).filter(m => solved(g, m)).length, 0) + (quizDoneToday() ? 1 : 0);
+const dailyDone = () => GAMES.reduce((a, g) => a + modesOf(g).filter(m => solved(g, m)).length, 0) + (quizDoneToday() ? 1 : 0) + (() => { try { return WD_LANGS.filter(([l]) => wdDay(l).won).length; } catch (e) { return 0; } })();
 function checkAch(silent) {
   const p = store.prog, got = [];
   ACH.forEach(([id, name, desc, test]) => { if (!p.ach[id]) { let ok = false; try { ok = test(p); } catch (e) {} if (ok) { p.ach[id] = today; if (!silent) { p.xp += 50; got.push([name, desc]); } } } });
@@ -1680,16 +1728,181 @@ function progressHtml() {
     <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">`;
 }
 
+/* ---------- Wordle: Wort des Tages, Sprache der Wörter frei wählbar ----------
+   Wortlisten: Häufigkeitslisten (OpenSubtitles, hermitdave/FrequencyWords, CC BY-SA 4.0), jedes Wort
+   gegen ein Hunspell-Rechtschreibwörterbuch der Sprache geprüft; Lösungen = häufige Grundformen. */
+const WD_LANGS = [["de", "Deutsch"], ["en", "English"], ["bks", "BKS"], ["es", "Español"]];
+const WD_KB = {
+  de: ["qwertzuiopü", "asdfghjklöä", "<yxcvbnmß>"],
+  en: ["qwertyuiop", "asdfghjkl", "<zxcvbnm>"],
+  es: ["qwertyuiop", "asdfghjklñ", "<zxcvbnm>"],
+  bks: ["ertzuiopšđ", "asdfghjklčćž", "<cvbnm>"],
+};
+const WD_LEVEL = { easy: { n: 7, hint: true }, normal: { n: 6 }, hard: { n: 6, hard: true } };
+const WDW = {}; const wdLoading = {};
+const wdNorm = (l, s) => { s = String(s).toLowerCase(); return l === "es" ? s.normalize("NFD").replace(/ñ/g, "ñ").replace(/[̀-ͯ]/g, "").normalize("NFC") : s; };
+function wdLoad(l) {
+  if (WDW[l]) return Promise.resolve(WDW[l]);
+  if (wdLoading[l]) return wdLoading[l];
+  const use = o => (WDW[l] = { a: o.a.split(" "), v: new Set(o.v.split(" ").concat(o.a.split(" "))) });
+  if (window.__WORDS && window.__WORDS[l]) return Promise.resolve(use(window.__WORDS[l]));
+  return (wdLoading[l] = fetch("data/wordle_" + l + ".json").then(r => r.json()).then(use).catch(() => null));
+}
+const WS = () => store.wordle || (store.wordle = { lang: null, level: "normal", days: {}, stats: {} });
+const wdLang = () => WS().lang || (["de", "en", "bks", "es"].includes(I18N.lang) ? I18N.lang : "de");
+const wdKey = l => l + ":" + today;
+function wdDay(l) { const d = WS().days; return d[wdKey(l)] || { g: [], won: false, done: false }; }
+let wdv = { mode: "daily", cur: "", endless: null, msg: "", shake: false, hint: null };
+function wdTarget(l) {
+  const W = WDW[l]; if (!W) return null;
+  if (wdv.mode === "endless") { if (!wdv.endless || wdv.endless.l !== l) wdv.endless = { l, w: W.a[Math.floor(Math.random() * W.a.length)], g: [], won: false, done: false, level: WS().level }; return wdv.endless.w; }
+  return shuffled(W.a, hash("wordle:" + l))[((day % W.a.length) + W.a.length) % W.a.length];
+}
+function wdState(l) {
+  if (wdv.mode === "endless") { wdTarget(l); return wdv.endless; }
+  const d = WS().days, k = wdKey(l); return d[k] || (d[k] = { g: [], won: false, done: false, level: WS().level });
+}
+function wdEval(guess, target) {
+  const g = [...guess], t = [...target], res = Array(5).fill("bad"), left = {};
+  t.forEach((ch, i) => { if (g[i] === ch) res[i] = "ok"; else left[ch] = (left[ch] || 0) + 1; });
+  g.forEach((ch, i) => { if (res[i] !== "ok" && left[ch]) { res[i] = "part"; left[ch]--; } });
+  return res;
+}
+function wdHardCheck(st, guess, target) {
+  for (const p of st.g) { const r = wdEval(p, target); for (let i = 0; i < 5; i++) {
+    if (r[i] === "ok" && [...guess][i] !== [...p][i]) return `Buchstabe ${i + 1} muss „${N([...p][i].toUpperCase())}“ sein`;
+    if (r[i] === "part" && !guess.includes([...p][i])) return `Das Wort muss „${N([...p][i].toUpperCase())}“ enthalten`; } }
+  return null;
+}
+function wdKeyState(st, target) {
+  const k = {}; const rank = { bad: 1, part: 2, ok: 3 };
+  st.g.forEach(w => wdEval(w, target).forEach((r, i) => { const ch = [...w][i]; if (!k[ch] || rank[r] > rank[k[ch]]) k[ch] = r; }));
+  return k;
+}
+function renderWordle() {
+  document.documentElement.dataset.theme = "wordle";
+  $("#wm").textContent = ""; $("#scene").innerHTML = ""; $("#parts").innerHTML = ""; $("#collage").innerHTML = ""; sceneFor = null; collageFor = null;
+  $("#landing").hidden = true; board.hidden = true; nav.hidden = false; $("#quiz").hidden = true; $("#live").hidden = true;
+  const box = $("#wordle"); box.hidden = false; renderNav();
+  $("#datanote").textContent = "Wordle – Wortlisten: OpenSubtitles-Häufigkeitslisten (hermitdave/FrequencyWords, CC BY-SA 4.0), geprüft mit Hunspell-Wörterbüchern (LibreOffice).";
+  $("#imgnote").textContent = "";
+  const l = wdLang(), W = WDW[l];
+  if (!W) { box.innerHTML = `<div class="wdhead"><h2>Wordle</h2><p>Wörter werden geladen …</p></div>`; wdLoad(l).then(() => view === "wordle" && render(false)); return; }
+  const target = wdTarget(l), st = wdState(l), lv = WD_LEVEL[st.level || WS().level] || WD_LEVEL.normal, started = st.g.length > 0;
+  const rows = [];
+  for (let r = 0; r < lv.n; r++) {
+    const w = st.g[r], isCur = r === st.g.length && !st.done, res = w ? wdEval(w, target) : null, fresh = w && r === st.g.length - 1 && wdv.reveal;
+    const letters = w ? [...w] : isCur ? [...wdv.cur] : [];
+    rows.push(`<div class="wdrow ${isCur && wdv.shake ? "shake" : ""}">${[0, 1, 2, 3, 4].map(i => `<div class="wdt ${res ? res[i] + (fresh ? "" : " old") : letters[i] ? "f" : ""}" style="--i:${i}">${letters[i] ? esc(letters[i]) : ""}</div>`).join("")}</div>`);
+  }
+  wdv.reveal = false; wdv.shake = false;
+  const ks = wdKeyState(st, target);
+  const kb = WD_KB[l].map(row => `<div class="wdkr">${[...row].map(ch => ch === "<" ? `<button type="button" class="wdk wide" data-wk="enter">Enter</button>` : ch === ">" ? `<button type="button" class="wdk wide" data-wk="back" aria-label="Löschen">⌫</button>` : `<button type="button" class="wdk ${ks[ch] || ""}" data-wk="${ch}">${ch}</button>`).join("")}</div>`).join("");
+  const n = st.g.length;
+  const end = st.done ? `<div class="wdend">${st.won ? `<div>Gelöst in <b>${n}</b> ${n === 1 ? "Versuch" : "Versuchen"}!</div>` : `<div>Das Wort war</div><b class="w">${esc(target.toUpperCase())}</b>`}
+    <div class="wdbar">${wdv.mode === "daily" ? `<button class="btn primary" type="button" data-wd="share">Ergebnis kopieren</button><button class="btn" type="button" data-wd="endless">Endlos weiterspielen</button>` : `<button class="btn primary" type="button" data-wd="next">Nächstes Wort</button>`}</div>
+    ${wdv.mode === "daily" ? `<small style="color:#aab4c4">Neues Wort um 00:00 Uhr</small>` : ""}</div>` : "";
+  box.innerHTML = `<div class="wdhead"><h2>Wordle</h2><p>Errate das Wort mit 5 Buchstaben. Grün = richtige Stelle, Gelb = kommt vor, Grau = kommt nicht vor.</p></div>
+    <div class="wdbar">
+      <span class="wdseg" role="group" aria-label="Sprache der Wörter" data-noi18n>${WD_LANGS.map(([id, nm]) => `<button type="button" data-wdl="${id}" aria-pressed="${l === id}">${esc(nm)}</button>`).join("")}</span>
+      <span class="wdseg" role="group" aria-label="Schwierigkeit">${[["easy", "Leicht"], ["normal", "Normal"], ["hard", "Schwer"]].map(([id, t]) => `<button type="button" data-wdlv="${id}" aria-pressed="${(st.level || WS().level) === id}" ${started && !st.done ? "disabled" : ""}>${t}</button>`).join("")}</span>
+      <span class="wdseg" role="group" aria-label="Spielart">${[["daily", "Täglich"], ["endless", "Endlos"]].map(([id, t]) => `<button type="button" data-wdm="${id}" aria-pressed="${wdv.mode === id}">${t}</button>`).join("")}</span>
+    </div>
+    <div class="wdmsg" role="status">${esc(wdv.msg || "")}</div>
+    <div class="wdgrid">${rows.join("")}</div>
+    ${lv.hint && !st.done ? `<button class="btn ghost" type="button" data-wd="hint" ${wdv.hint && wdv.hint.l === l && wdv.hint.w === target ? "disabled" : ""}>${wdv.hint && wdv.hint.l === l && wdv.hint.w === target ? `Tipp: Buchstabe ${wdv.hint.i + 1} ist „${N([...target][wdv.hint.i].toUpperCase())}“` : "Tipp anzeigen"}</button>` : ""}
+    ${end}
+    ${st.done ? "" : `<div class="wdkb">${kb}</div>`}
+    <p class="wdnote">Leicht: 7 Versuche und ein Tipp · Normal: 6 Versuche · Schwer: 6 Versuche, aufgedeckte Buchstaben müssen weiterverwendet werden. Jede Sprache hat ihr eigenes Wort des Tages.</p>`;
+}
+function wdType(k) {
+  if (view !== "wordle") return;
+  const l = wdLang(), W = WDW[l]; if (!W) return;
+  const st = wdState(l); if (st.done) return;
+  if (k === "back") { wdv.cur = [...wdv.cur].slice(0, -1).join(""); wdv.msg = ""; return render(false); }
+  if (k === "enter") return wdSubmit();
+  const ch = wdNorm(l, k); if ([...ch].length !== 1 || !WD_KB[l].join("").includes(ch) || "<>".includes(ch)) return;
+  if ([...wdv.cur].length < 5) { wdv.cur += ch; wdv.msg = ""; SFX.click(); render(false); }
+}
+function wdFail(msg) { wdv.msg = msg; wdv.shake = true; SFX.wrong(); render(false); }
+function wdSubmit() {
+  const l = wdLang(), W = WDW[l], target = wdTarget(l), st = wdState(l), lv = WD_LEVEL[st.level || WS().level] || WD_LEVEL.normal;
+  const g = wdv.cur;
+  if ([...g].length < 5) return wdFail("Zu wenige Buchstaben");
+  if (!W.v.has(g)) return wdFail("Kein bekanntes Wort");
+  if (lv.hard) { const e = wdHardCheck(st, g, target); if (e) return wdFail(e); }
+  if (!st.level) st.level = WS().level;
+  st.g.push(g); wdv.cur = ""; wdv.msg = ""; wdv.reveal = true;
+  const won = g === target, lost = !won && st.g.length >= lv.n;
+  if (won || lost) { st.won = won; st.done = true; }
+  save(); render(false); SFX.flip(5);
+  if (won) setTimeout(() => {
+    SFX.right(); showMascot(); confetti();
+    const s = WS().stats[l] || (WS().stats[l] = { wins: 0, played: 0, streak: 0, best: 0, last: null, dist: {} });
+    if (wdv.mode === "daily") { s.played++; s.wins++; s.streak = s.last === yday() ? s.streak + 1 : 1; s.best = Math.max(s.best, s.streak); s.last = today; s.dist[st.g.length] = (s.dist[st.g.length] || 0) + 1; st.aw = award("daily", { tries: st.g.length, g: "wordle" }); }
+    else award("endless", { g: "wordle" });
+    save(); updateHud();
+  }, 5 * 180 + 450);
+  else if (lost) { if (wdv.mode === "daily") { const s = WS().stats[l] || (WS().stats[l] = { wins: 0, played: 0, streak: 0, best: 0, last: null, dist: {} }); s.played++; s.streak = 0; save(); } setTimeout(() => SFX.wrong(), 900); }
+}
+function wdShare() {
+  const l = wdLang(), st = wdState(l), target = wdTarget(l), lv = WD_LEVEL[st.level || "normal"];
+  const rows = st.g.map(w => wdEval(w, target).map(r => emoji(r === "bad" ? "bad" : r)).join("")).join("\n").replace(/🟥/g, "⬛");
+  copy(`Super Daily · Wordle ${l.toUpperCase()} #${day + 1} ${st.won ? st.g.length : "X"}/${lv.n}${st.level === "hard" ? "*" : ""}\n${rows}`, "Ergebnis kopiert");
+}
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-wd],[data-wk],[data-wdl],[data-wdlv],[data-wdm]"); if (!t) return;
+  if (t.dataset.wk) return wdType(t.dataset.wk);
+  if (t.dataset.wdl) { WS().lang = t.dataset.wdl; wdv.cur = ""; wdv.msg = ""; save(); wdLoad(t.dataset.wdl).then(() => render(false)); return; }
+  if (t.dataset.wdlv) { const st = wdState(wdLang()); if (st.g.length && !st.done) return; WS().level = t.dataset.wdlv; st.level = st.g.length ? st.level : t.dataset.wdlv; save(); return render(false); }
+  if (t.dataset.wdm) { wdv.mode = t.dataset.wdm; wdv.cur = ""; wdv.msg = ""; if (wdv.mode === "endless") wdv.endless = null; return render(false); }
+  const a = t.dataset.wd;
+  if (a === "home") { view = "wordle"; wdv.cur = ""; wdv.msg = ""; window.scrollTo({ top: 0 }); return render(false); }
+  if (a === "share") return wdShare();
+  if (a === "endless") { wdv.mode = "endless"; wdv.endless = null; return render(false); }
+  if (a === "next") { wdv.endless = null; return render(false); }
+  if (a === "hint") { const l = wdLang(), tg = wdTarget(l), st = wdState(l); const known = new Set(); st.g.forEach(w => wdEval(w, tg).forEach((r, i) => r === "ok" && known.add(i))); const free = [0, 1, 2, 3, 4].filter(i => !known.has(i)); wdv.hint = { l, w: tg, i: free.length ? free[Math.floor(Math.random() * free.length)] : 0 }; return render(false); }
+});
+addEventListener("keydown", e => {
+  if (view !== "wordle" || e.ctrlKey || e.metaKey || e.altKey) return;
+  if (e.target.closest && e.target.closest("input,textarea,select")) return;
+  const m = $("#modal"); if (m && !m.hidden) return;
+  if (e.key === "Enter") { e.preventDefault(); return wdType("enter"); }
+  if (e.key === "Backspace") { e.preventDefault(); return wdType("back"); }
+  if (e.key.length === 1) wdType(e.key);
+});
+
 /* ---------- Rendering ---------- */
 const board = $("#board"), nav = $("#games");
 function renderNav() {
-  nav.innerHTML = GAMES.map(g => `<button class="chip" type="button" data-game="${g.id}" style="--gc:${g.color}" aria-current="${!["quiz", "live", "arena"].includes(view) && g === game}"><i></i>${esc(N(g.name))}${modesOf(g).every(m => solved(g, m)) ? '<span class="tick" aria-label="heute alles gelöst">✓</span>' : ""}</button>`).join("") + `<button class="chip quizchip" type="button" data-q="home" aria-current="${view === "quiz"}"><i></i>Quiz-Arena</button><button class="chip livechip" type="button" data-lv="home" aria-current="${view === "live"}"><i></i>Live</button><button class="chip arenachip" type="button" data-lv="home" aria-current="${view === "arena"}"><i></i>Arena</button>`;
+  nav.innerHTML = GAMES.map(g => `<button class="chip" type="button" data-game="${g.id}" style="--gc:${g.color}" aria-current="${!["quiz", "live", "arena", "wordle"].includes(view) && g === game}"><i></i>${esc(N(g.name))}${modesOf(g).every(m => solved(g, m)) ? '<span class="tick" aria-label="heute alles gelöst">✓</span>' : ""}</button>`).join("") + `<button class="chip wordlechip" type="button" data-wd="home" aria-current="${view === "wordle"}"><i></i>Wordle</button><button class="chip quizchip" type="button" data-q="home" aria-current="${view === "quiz"}"><i></i>Quiz-Arena</button><button class="chip livechip" type="button" data-lv="home" aria-current="${view === "live"}"><i></i>Live</button><button class="chip arenachip" type="button" data-lv="home" aria-current="${view === "arena"}"><i></i>Arena</button>`;
   const all = GAMES.flatMap(g => modesOf(g).map(m => [g, m]));
   $("#solved").textContent = `${all.filter(([g, m]) => solved(g, m)).length}/${all.length}`;
 }
 let lastViewKey = "";
+let navPop = false, navKey = "";
+function navTrack() {
+  const s = { v: view, g: game && game.id, k: kind && kind.id, p: play === "race" ? "daily" : play }, k = [s.v, s.g, s.k, s.p].join("|");
+  if (k === navKey || navPop) { navKey = k; return; }
+  try { if (!navKey) history.replaceState(s, ""); else history.pushState(s, ""); } catch (e) {}
+  navKey = k;
+}
+addEventListener("popstate", e => {
+  const s = e.state; if (!s || !s.v) return;
+  navPop = true;
+  try {
+    if (view === "arena" || s.v === "arena") s.v = "landing";
+    view = s.v; const g = GAMES.find(x => x.id === s.g); if (g) game = g;
+    kind = (s.k && modesOf(game).find(m => m.id === s.k)) || CLASSIC; play = s.p || "daily";
+    if (play === "duel" && !duel) play = "daily"; endless = null;
+    if (view === "quiz") qv = { screen: "home" };
+    render(false); window.scrollTo({ top: 0 });
+  } finally { navPop = false; }
+});
 function render(focus = true) {
-  updateHud();
+  updateHud(); navTrack();
+  { const wd = $("#wordle"); if (wd) wd.hidden = view !== "wordle"; }
+  if (view === "wordle") { $("#live").hidden = true; $("#quiz").hidden = true; return renderWordle(); }
   { const vk = [view, game && game.id, kind && kind.id, play].join("|"); if (vk !== lastViewKey) { lastViewKey = vk; requestAnimationFrame(() => [board, $("#landing"), $("#quiz"), $("#live")].forEach(el => { if (el && !el.hidden) { el.classList.remove("enter"); void el.offsetWidth; el.classList.add("enter"); } })); } }
   if (view === "quiz") { $("#live").hidden = true; return renderQuiz(); }
   if (view === "live") return renderLive();
@@ -1720,7 +1933,8 @@ function render(focus = true) {
     <div class="head"><h2>${esc(N(game.name))}</h2><span class="meta">${pool(game, kind, gens).length} ${esc(game.pl || game.noun)} zur Auswahl</span></div>
     <div class="tagline">${esc(game.tag || "")}</div>
     ${ms.length > 1 && play !== "race" ? `<div class="kinds" role="group" aria-label="Rätselart">${ms.map(m => `<button class="kind" type="button" data-kind="${m.id}" aria-pressed="${m === kind}" ${play === "duel" && duel ? "disabled" : ""}><span class="oct" style="--oc:${m.oc || "#94a3b8"}" aria-hidden="true"><b>${m.ico}</b></span>${esc(N(m.label))}${solved(game, m) ? '<span class="ok">✓ heute</span>' : ""}</button>`).join("")}</div>` : ""}
-    <div class="seg" role="group" aria-label="Spielart" ${play === "race" ? "hidden" : ""}>${[["daily", "Täglich"], ["archiv", "Archiv"], ["endless", "Endlos"], ["duel", "Duell"]].map(([p, l]) => `<button type="button" data-play="${p}" aria-pressed="${play === p}">${l}</button>`).join("")}</div>
+    <div class="row">${play === "race" ? "" : `<div class="seg diffseg" role="group" aria-label="Schwierigkeit">${[["easy", "Leicht"], ["normal", "Normal"], ["hard", "Schwer"]].map(([d, l]) => `<button type="button" data-diff="${d}" aria-pressed="${DIFF() === d}">${l}</button>`).join("")}</div>`}
+    <div class="seg" role="group" aria-label="Spielart" ${play === "race" ? "hidden" : ""}>${[["daily", "Täglich"], ["archiv", "Archiv"], ["endless", "Endlos"], ["duel", "Duell"]].map(([p, l]) => `<button type="button" data-play="${p}" aria-pressed="${play === p}">${l}</button>`).join("")}</div></div>
     ${game.gens ? gensHtml() : ""}
     ${play === "duel" ? duelHtml() : ""}
     ${play === "archiv" ? archHtml() : ""}
@@ -1740,7 +1954,9 @@ function hubHtml() {
       ${all ? '<span class="ok" aria-label="heute alles gelöst">✓</span>' : ""}<span class="im">${H[g.id] ? `<img src="${H[g.id]}" alt="" loading="lazy" decoding="async">` : `<span class="ini">${esc(g.code)}</span>`}</span>
       <b>${esc(N(g.name))}</b><span class="pr" aria-hidden="true"><i style="width:${Math.round(n / Math.max(1, ms.length) * 100)}%"></i></span><small>${n}/${ms.length} heute gelöst</small></button>`; };
   const fr = (attr, ico, t, d, bg, sh) => `<button type="button" class="hf" ${attr} style="--hb:${bg};--hs:${sh}"><span class="ico" aria-hidden="true">${ico}</span><span><b>${t}</b><small>${d}</small></span></button>`;
-  return `<section class="hub" aria-label="Weitere Spiele"><h3>Weitere Rätsel</h3><div class="hubg">${GAMES.map(card).join("")}</div>
+  const wdn = WD_LANGS.filter(([l]) => wdDay(l).won).length;
+  const wcard = `<button type="button" class="hc wd" data-wd="home" style="--gc:#3ddc84"><span class="im"><span class="wdlogo" aria-hidden="true"><i>W</i><i>O</i><i>R</i></span></span><b>Wordle</b><span class="pr" aria-hidden="true"><i style="width:${wdn ? 100 : 0}%"></i></span><small>Wort des Tages · 4 Sprachen</small></button>`;
+  return `<section class="hub" aria-label="Weitere Spiele"><h3>Weitere Rätsel</h3><div class="hubg">${wcard}${GAMES.map(card).join("")}</div>
     <h3>Mit Freunden</h3><div class="hubf">
       ${fr('data-lv="home"', "⚡", "Live spielen", "Raum-Link teilen, gleichzeitig spielen", "linear-gradient(135deg,#22c55e,#0ea371)", "#0b6b4a")}
       ${fr('data-q="home"', "?", "Quiz-Arena", "Duell wie Quizduell, auch per Code", "linear-gradient(135deg,#8b7bff,#5b4bdb)", "#3a2f9a")}
@@ -1876,7 +2092,7 @@ function playHtml(st) {
   const stats = store.stats[game.id + ":" + kind.id];
   return `
     ${clueHtml(st)}
-    ${kind.type === "classic" ? `<div class="legend"><span style="--k:var(--ok)">richtig</span><span style="--k:var(--part)">teilweise</span><span style="--k:var(--bad)">falsch</span><span class="plain">▲▼ gesuchter Wert höher / niedriger</span></div>` : ""}
+    ${kind.type === "classic" ? (DIFF() === "hard" ? `<div class="legend"><span style="--k:var(--ok)">richtig</span><span style="--k:var(--bad)">nicht ganz richtig</span><span class="plain">Schwer: keine Teil-Treffer, keine Pfeile</span></div>` : `<div class="legend"><span style="--k:var(--ok)">richtig</span><span style="--k:var(--part)">teilweise</span><span style="--k:var(--bad)">falsch</span><span class="plain">▲▼ gesuchter Wert höher / niedriger</span></div>`) : ""}
     <div class="note">${sub} · Versuche: <b>${st.guesses.length}</b>${st.kind === "daily" && stats ? ` · Serie: <b>${stats.streak}</b> · Rekord: <b>${stats.best}</b>` : ""}</div>
     ${st.won ? winHtml(st) : `<div class="search"><input class="field" id="guess" type="text" autocomplete="off" spellcheck="false" placeholder="${esc(game.noun)} eingeben …" aria-label="${esc(game.noun)} eingeben" aria-expanded="false" aria-controls="sugg"><div class="sugg" id="sugg" role="listbox" hidden></div></div>`}
     ${kind.type !== "profile" && !st.won ? hintsHtml(st) : ""}
@@ -1886,14 +2102,14 @@ function playHtml(st) {
 }
 function hintsHtml(st) {
   const wrong = st.guesses.length;
-  return `<div class="hints">${game.hints.map((h, i) => wrong >= h.after ? `<div class="hint">${h.html(st.target)}</div>` : `<div class="hint locked">Hinweis ${i + 1} nach ${h.after - wrong} weiteren Fehlversuchen</div>`).join("")}</div>`;
+  return `<div class="hints">${game.hints.map((h, i) => wrong >= hintAfter(h) ? `<div class="hint">${h.html(st.target)}</div>` : `<div class="hint locked">Hinweis ${i + 1} nach ${hintAfter(h) - wrong} weiteren Fehlversuchen</div>`).join("")}</div>`;
 }
 function gridHtml(st) {
   if (!st.guesses.length) return "";
   const rows = st.guesses.slice().reverse().map((n, ri) => {
     const c = game.byName.get(n); if (!c) return "";
     return `<tr><td class="name" title="${esc(c.name)}">${ptile(c)}</td>${game.cols.map((col, ci) => {
-      const r = compare(col, c[col.k], st.target[col.k], st.target), a = arrow(col, c[col.k], st.target[col.k]);
+      const r0 = compare(col, c[col.k], st.target[col.k], st.target), r = DIFF() === "hard" && r0 === "part" ? "bad" : r0, a = arrow(col, c[col.k], st.target[col.k]);
       const lng = String(show(col, c[col.k], c)).split(/[\s,]+/).some(w => w.length > 11);
       return `<td class="${r} ${a ? (a === "▲" ? "up" : "down") : ""} ${lng ? "long" : ""}" style="animation-delay:${ri === 0 ? ci * 110 : 0}ms">${cellHtml(col, c[col.k], c)}${a ? `<span class="sr">${a === "▲" ? "gesuchter Wert höher" : "gesuchter Wert niedriger"}</span>` : ""}</td>`;
     }).join("")}</tr>`;
@@ -1994,10 +2210,10 @@ function winHtml(st) {
 function shareText(st) {
   const head = st.kind === "duel" ? `Dle-Arena Duell ${N(duel.code)} · ${N(game.name)} ${N(kind.label)}` : `Dle-Arena · ${N(game.name)} ${N(kind.label)} #${(st.kind === "archiv" ? archDay : day) + 1}${game.gens ? " · " + genLabel(st.gens) : ""}`;
   const body = kind.type === "classic"
-    ? st.guesses.map(n => { const c = game.byName.get(n); return game.cols.map(col => emoji(compare(col, c[col.k], st.target[col.k], st.target))).join(""); }).join("\n")
+    ? st.guesses.map(n => { const c = game.byName.get(n); return game.cols.map(col => { const r = compare(col, c[col.k], st.target[col.k], st.target); return emoji(DIFF() === "hard" && r === "part" ? "bad" : r); }).join(""); }).join("\n")
     : st.guesses.map(n => emoji(n === st.target.name ? "ok" : "bad")).join("");
   const tail = st.kind === "duel" ? `\n${myName() || "Spieler"} · Ergebnis-Code: ${resCode(duel.code, myName() || "Spieler", st.guesses.length)}` : "";
-  return `${head}\nGelöst in ${st.guesses.length} ${st.guesses.length === 1 ? "Versuch" : "Versuchen"}\n${body}${tail}`;
+  return `${head}${DIFF() !== "normal" ? " · " + (DIFF() === "hard" ? "Schwer" : "Leicht") : ""}\nGelöst in ${st.guesses.length} ${st.guesses.length === 1 ? "Versuch" : "Versuchen"}\n${body}${tail}`;
 }
 
 /* ---------- Eingabe ---------- */
@@ -2082,7 +2298,9 @@ function joinDuel(input) {
   if (NEEDS_IMG(p.m) && IMG_OK === false) { toast("Dieser Modus braucht Online-Bilder – bitte auf der eigenen Website spielen"); return false; }
   game = p.g; store.game = p.g.id; kind = p.m; play = "duel"; duel = p; view = "play"; save(); render(); return true;
 }
+document.addEventListener("click", e => { const d = e.target.closest("[data-diff]"); if (d) { store.diff = d.dataset.diff; save(); render(false); } });
 document.addEventListener("click", e => {
+  if (e.target.closest("#homelink")) { e.preventDefault(); view = "landing"; play = "daily"; endless = null; duel = null; window.scrollTo({ top: 0 }); return render(false); }
   if (e.target.closest("#mascot")) { $("#mascot").hidden = true; return; }
   const t = e.target.closest("#sndbtn,[data-game],[data-kind],[data-play],[data-gen],[data-act],[data-start],[data-arch],#cbbtn,#mbtn,#mimg");
   if (!t) { if (!e.target.closest(".search")) { const b = $("#sugg"); if (b) b.hidden = true; } return; }
@@ -2955,7 +3173,7 @@ const reveal = setTimeout(() => document.documentElement.style.visibility = "", 
 I18N.set(store.lang || I18N.detect(), () => { clearTimeout(reveal); document.documentElement.style.visibility = ""; renderLangs(); if (!fromHash()) render(); });
 probeImages();
 tick(); setInterval(tick, 1000);
-window.__dle = { I18N, LV: () => LV, liveEnter, lqQuestion, race: () => race,  qEncode, qDecode, nextAct, roundQs, QCATS, qState: () => qv, embedded, GAMES, dailyTarget, duelTarget, parseCode, dateStr, dayIndex, pool, imgOk: () => IMG_OK, showMascot };
+window.__dle = { wdTarget, I18N, LV: () => LV, liveEnter, lqQuestion, race: () => race,  qEncode, qDecode, nextAct, roundQs, QCATS, qState: () => qv, embedded, GAMES, dailyTarget, duelTarget, parseCode, dateStr, dayIndex, pool, imgOk: () => IMG_OK, showMascot };
 })();
 </script>
 <script>if('serviceWorker' in navigator&&location.protocol==='https:')addEventListener('load',()=>navigator.serviceWorker.register('sw.js'));</script></body></html>
