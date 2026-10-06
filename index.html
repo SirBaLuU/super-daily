@@ -1,4 +1,4 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https: wss:; media-src 'self' data: blob:; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#14161c"><meta name="description" content="Tägliche Rate-Spiele, Quiz-Duelle und Arena-Shooter mit Freunden – nur per Link."><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png"><style>body{margin:0}[hidden]{display:none!important}</style><script>window.__WINIMG="img/sieger.jpg";window.__I18NV="1791268165"</script></head><body><title>Dle-Arena</title>
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https: wss:; media-src 'self' data: blob:; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#14161c"><meta name="description" content="Tägliche Rate-Spiele, Quiz-Duelle und Arena-Shooter mit Freunden – nur per Link."><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png"><style>body{margin:0}[hidden]{display:none!important}</style><script>window.__I18NV="1791270552"</script></head><body><title>Dle-Arena</title>
 <style id="fonts">@font-face{font-family:'Chakra Petch';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/chakra-petch-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Chakra Petch';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/chakra-petch-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'Chakra Petch';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/chakra-petch-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
@@ -775,6 +775,18 @@ html:root[data-theme] .backbtn:hover{border-color:var(--edge);box-shadow:0 0 14p
 html:root[data-theme] .board .head .meta,html:root[data-theme] .board .legend{color:#aab4c4}
 @media (prefers-reduced-motion:reduce){.top::after,.enter{animation:none}}
 </style>
+<style>
+/* v22: Sieger-Pokal */
+.mcard .trophy{width:min(260px,64vw);filter:drop-shadow(0 0 30px color-mix(in srgb,var(--c) 70%,transparent)) drop-shadow(0 14px 30px rgb(0 0 0 / .6));animation:tpop .55s cubic-bezier(.2,1.5,.4,1) both}
+.mcard .trophy .rays{animation:tspin 9s linear infinite}
+.mcard .trophy .tw{animation:ttw 1.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.mcard .trophy .t2{animation-delay:.4s}.mcard .trophy .t3{animation-delay:.8s}
+@keyframes tpop{from{transform:scale(.4) rotate(-12deg);opacity:0}}
+@keyframes tspin{to{transform:rotate(360deg)}}
+@keyframes ttw{50%{transform:scale(.4);opacity:.3}}
+.mtxt{font-size:38px;letter-spacing:.04em;text-shadow:0 0 18px color-mix(in srgb,var(--c) 80%,transparent),0 3px 0 rgb(0 0 0 / .5)}
+@media (prefers-reduced-motion:reduce){.mcard .trophy,.mcard .trophy .rays,.mcard .trophy .tw{animation:none}}
+</style>
 
 <div class="scene" id="scene" aria-hidden="true"></div>
 <div class="collage" id="collage" aria-hidden="true"></div>
@@ -838,38 +850,24 @@ html:root[data-theme] .board .head .meta,html:root[data-theme] .board .legend{co
   </div>
 </div>
 <div class="toast" id="toast" hidden></div>
-<div class="mascot" id="mascot" hidden><div class="mcard"><img class="mphoto" id="mphoto" alt="Eigenes Sieger-Bild" hidden><svg class="mascot-svg" viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Goth-Maskottchen hält ein Schild: Richtig!">
+<div class="mascot" id="mascot" hidden><div class="mcard"><img class="mphoto" id="mphoto" alt="Eigenes Sieger-Bild" hidden><svg class="mascot-svg trophy" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pokal: Richtig!">
   <defs>
-    <radialGradient id="mgl" cx="50%" cy="45%" r="55%"><stop offset="0" stop-color="#7b4bb3" stop-opacity=".55"/><stop offset="1" stop-color="#7b4bb3" stop-opacity="0"/></radialGradient>
-    <linearGradient id="mhair" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#26202e"/><stop offset="1" stop-color="#0d0a12"/></linearGradient>
+    <radialGradient id="tglow" cx="50%" cy="45%" r="50%"><stop offset="0" style="stop-color:var(--c)" stop-opacity=".75"/><stop offset="1" style="stop-color:var(--c)" stop-opacity="0"/></radialGradient>
+    <linearGradient id="tgold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3b0"/><stop offset=".45" stop-color="#ffc531"/><stop offset="1" stop-color="#c77800"/></linearGradient>
   </defs>
-  <circle cx="110" cy="125" r="118" fill="url(#mgl)"/>
-  <path d="M50 96 Q48 38 110 32 Q172 38 170 96 L176 176 Q156 184 144 166 L76 166 Q64 184 44 176 Z" fill="url(#mhair)"/>
-  <path d="M56 260 Q58 200 110 190 Q162 200 164 260 Z" fill="#1d1724"/>
-  <path d="M84 194 Q110 214 136 194 L131 207 Q110 222 89 207 Z" fill="#3a2f44"/>
-  <path d="M89 207 l4 6 l4 -5 l4 6 l4 -5 l5 6 l5 -6 l4 5 l4 -6 l4 5 l4 -6" stroke="#5b4b6b" stroke-width="2" fill="none"/>
-  <rect x="100" y="158" width="20" height="34" rx="8" fill="#f1dccb"/>
-  <rect x="97" y="171" width="26" height="7" rx="3.5" fill="#0b0a0e"/>
-  <path d="M104 171 l2 -4 l2 4 M110 171 l2 -4 l2 4" stroke="#b9b3c4" stroke-width="1.5" fill="none"/>
-  <circle cx="110" cy="182" r="3.2" fill="#c7b2ea"/>
-  <ellipse cx="110" cy="112" rx="45" ry="51" fill="#f1dccb"/>
-  <path d="M63 104 Q60 50 110 46 Q160 50 157 104 L151 104 L151 84 L69 84 L69 104 Z" fill="url(#mhair)"/>
-  <path d="M63 98 L73 98 L73 156 L61 156 Z M147 98 L157 98 L159 156 L147 156 Z" fill="#14101a"/>
-  <path d="M82 113 Q91 103 100 113" stroke="#0b0a0e" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-  <path d="M99 112 L106 106" stroke="#0b0a0e" stroke-width="2.6" stroke-linecap="round"/>
-  <path d="M120 113 Q129 103 138 113" stroke="#0b0a0e" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-  <path d="M137 112 L144 106" stroke="#0b0a0e" stroke-width="2.6" stroke-linecap="round"/>
-  <path d="M86 98 Q92 95 98 97 M122 97 Q128 95 134 98" stroke="#2a2230" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <ellipse cx="85" cy="127" rx="7" ry="3.5" fill="#e795a8" opacity=".5"/>
-  <ellipse cx="135" cy="127" rx="7" ry="3.5" fill="#e795a8" opacity=".5"/>
-  <path d="M101 135 Q110 144 119 135 Q110 139 101 135 Z" fill="#4e1734"/>
-  <path d="M146 62 l3 7 l7 1 l-5 5 l2 7 l-7 -4 l-6 4 l1 -7 l-5 -5 l7 -1 Z" fill="#c7b2ea"/>
-  <g transform="rotate(-4 110 222)">
-    <rect x="34" y="200" width="152" height="42" rx="8" fill="#ece7f6" stroke="#3a2f44" stroke-width="3"/>
-    <text x="110" y="229" text-anchor="middle" font-family="Chakra Petch, Segoe UI, sans-serif" font-size="23" font-weight="700" fill="#2a1638" letter-spacing="2">RICHTIG!</text>
+  <circle cx="120" cy="112" r="118" fill="url(#tglow)"/>
+  <g class="rays" style="transform-origin:120px 112px" fill="#fff" opacity=".22">
+    <path d="M120 112 L112 0 H128 Z"/><path d="M120 112 L112 0 H128 Z" transform="rotate(30 120 112)"/><path d="M120 112 L112 0 H128 Z" transform="rotate(60 120 112)"/><path d="M120 112 L112 0 H128 Z" transform="rotate(90 120 112)"/><path d="M120 112 L112 0 H128 Z" transform="rotate(120 120 112)"/><path d="M120 112 L112 0 H128 Z" transform="rotate(150 120 112)"/><path d="M120 112 L112 0 H128 Z" transform="rotate(180 120 112)"/><path d="M120 112 L112 0 H128 Z" transform="rotate(210 120 112)"/><path d="M120 112 L112 0 H128 Z" transform="rotate(240 120 112)"/><path d="M120 112 L112 0 H128 Z" transform="rotate(270 120 112)"/><path d="M120 112 L112 0 H128 Z" transform="rotate(300 120 112)"/><path d="M120 112 L112 0 H128 Z" transform="rotate(330 120 112)"/>
   </g>
-  <circle cx="44" cy="214" r="10" fill="#f1dccb"/><path d="M38 210 h12" stroke="#2a1638" stroke-width="2.5" stroke-linecap="round"/>
-  <circle cx="176" cy="206" r="10" fill="#f1dccb"/><path d="M170 202 h12" stroke="#2a1638" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M78 52 H162 V96 C162 128 144 146 120 148 C96 146 78 128 78 96 Z" fill="url(#tgold)" stroke="#7a4a00" stroke-width="3"/>
+  <path d="M78 62 H58 C54 92 66 110 84 114" fill="none" stroke="#ffc531" stroke-width="9" stroke-linecap="round"/>
+  <path d="M162 62 H182 C186 92 174 110 156 114" fill="none" stroke="#ffc531" stroke-width="9" stroke-linecap="round"/>
+  <path d="M92 60 C92 96 100 120 112 132" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".55"/>
+  <rect x="110" y="146" width="20" height="26" fill="#e0a018" stroke="#7a4a00" stroke-width="3"/>
+  <rect x="86" y="170" width="68" height="18" rx="5" fill="url(#tgold)" stroke="#7a4a00" stroke-width="3"/>
+  <rect x="74" y="186" width="92" height="22" rx="6" style="fill:var(--c)" stroke="#05070c" stroke-width="3"/>
+  <path d="M120 70 l7 14 15 2 -11 11 3 15 -14 -7 -14 7 3 -15 -11 -11 15 -2 z" fill="#fff" opacity=".95"/>
+  <g fill="#fff"><path class="tw" d="M32 60 l4 9 9 4 -9 4 -4 9 -4 -9 -9 -4 9 -4 z"/><path class="tw t2" d="M206 44 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3 z"/><path class="tw t3" d="M196 168 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z"/><path class="tw t2" d="M40 176 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z"/></g>
 </svg>
 <div class="mtxt" id="mtxt">Gelöst!</div></div></div>
 
