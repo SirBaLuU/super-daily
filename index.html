@@ -1,4 +1,4 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https: wss:; media-src 'self' data: blob:; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#14161c"><title>Super Daily – tägliche Rate-Spiele: Loldle, Pokémon, Naruto, One Piece, Valorant, Wordle</title><meta name="description" content="Super Daily: jeden Tag neue Rate-Spiele – League of Legends, Pokémon, Naruto, One Piece, Bleach, Dragon Ball, Valorant, Clash Royale, Fortnite, R6 und Wordle in 4 Sprachen. Quiz-Duelle und Arena mit Freunden, nur per Link."><meta property="og:title" content="Super Daily – tägliche Rate-Spiele"><meta property="og:description" content="Loldle, Pokémon, Naruto, One Piece, Wordle und mehr – jeden Tag neu, mit Freunden per Link."><meta property="og:type" content="website"><meta property="og:url" content="https://sirbaluu.github.io/super-daily/"><link rel="canonical" href="https://sirbaluu.github.io/super-daily/"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png"><style>body{margin:0}[hidden]{display:none!important}</style><script>window.__I18NV="1791271179"</script></head><body><title>Dle-Arena</title>
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https: wss:; media-src 'self' data: blob:; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#14161c"><title>Super Daily – tägliche Rate-Spiele: Loldle, Pokémon, Naruto, One Piece, Valorant, Wordle</title><meta name="description" content="Super Daily: jeden Tag neue Rate-Spiele – League of Legends, Pokémon, Naruto, One Piece, Bleach, Dragon Ball, Valorant, Clash Royale, Fortnite, R6 und Wordle in 4 Sprachen. Quiz-Duelle und Arena mit Freunden, nur per Link."><meta property="og:title" content="Super Daily – tägliche Rate-Spiele"><meta property="og:description" content="Loldle, Pokémon, Naruto, One Piece, Wordle und mehr – jeden Tag neu, mit Freunden per Link."><meta property="og:type" content="website"><meta property="og:url" content="https://sirbaluu.github.io/super-daily/"><link rel="canonical" href="https://sirbaluu.github.io/super-daily/"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png"><style>body{margin:0}[hidden]{display:none!important}</style><script>window.__I18NV="1791272694"</script></head><body><title>Super Daily</title>
 <style id="fonts">@font-face{font-family:'Chakra Petch';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/chakra-petch-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Chakra Petch';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/chakra-petch-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'Chakra Petch';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/chakra-petch-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
@@ -832,6 +832,58 @@ html:root[data-theme] .board .head .meta,html:root[data-theme] .board .legend{co
 .diffseg button[data-diff="easy"][aria-pressed="true"]{background:linear-gradient(135deg,#7ef0b0,#3ddc84)!important;color:#04120a!important}
 .diffseg button[data-diff="hard"][aria-pressed="true"]{background:linear-gradient(135deg,#ff8a80,#ef4444)!important;color:#fff!important}
 </style>
+<style>
+/* v25: Spielauswahl als Kacheln */
+.games{display:flex;flex-wrap:wrap;gap:10px 16px;overflow:visible;padding:0;margin-bottom:16px}
+.gsec{display:flex;flex-direction:column;gap:6px;min-width:0}
+.gsec:first-child{flex:1 1 560px}.gmore{flex:0 1 auto}
+.glbl{font-family:var(--f-display);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#aab4c4;padding-left:2px}
+.ggrid{display:flex;flex-wrap:wrap;gap:6px}
+html:root[data-theme] .games .chip.gt{clip-path:none;border-radius:12px;padding:5px 8px 5px 5px;gap:7px;min-height:40px;border:1px solid rgb(255 255 255 / .12);background:rgb(10 12 20 / .82);box-shadow:inset 0 -2px 0 color-mix(in srgb,var(--gc) 70%,transparent);font-family:var(--f-body);font-size:13px;letter-spacing:0;color:#e8edf4}
+html:root[data-theme] .games .chip.gt:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--gc) 70%,transparent);box-shadow:0 0 14px -4px var(--gc),inset 0 -2px 0 var(--gc)}
+html:root[data-theme] .games .chip.gt[aria-current="true"]{background:linear-gradient(135deg,color-mix(in srgb,var(--gc) 85%,#fff 0%),color-mix(in srgb,var(--gc) 45%,#000));border-color:#fff;box-shadow:0 0 20px -4px var(--gc)}
+.gt .gi{flex:0 0 auto;width:30px;height:30px;border-radius:9px;overflow:hidden;display:grid;place-items:center;background:color-mix(in srgb,var(--gc) 35%,#0a0d14)}
+.gt .gi img{width:100%;height:100%;object-fit:cover}
+.gt.sprite .gi img,.gt.icon .gi img,.gt.card .gi img{object-fit:contain;padding:2px}
+.gt .gi b{font-size:13px;font-weight:900;color:#fff}
+.gt .gn{font-weight:700;white-space:nowrap}
+.gt .gp{font-size:11px;font-weight:800;padding:1px 6px;border-radius:99px;background:rgb(255 255 255 / .1);color:#cfd7e4}
+.gt .gp.done{background:#25a85c;color:#fff}
+.gt.x{--gc:#7aa2ff}.gt.wordlechip{--gc:#3ddc84}.gt.quizchip{--gc:#8b7bff}.gt.livechip{--gc:#4ade80}.gt.arenachip{--gc:#f472b6}
+@media (max-width:760px){
+  .games{flex-direction:column;gap:6px}
+  .games .gsec,.games .gsec:first-child,.games .gmore{flex:none;width:100%;max-width:100%;min-width:0}
+  .games .ggrid{max-width:100%;min-width:0}
+  .ggrid{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;padding:2px 2px 4px;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
+  .ggrid::-webkit-scrollbar{display:none}
+  .ggrid .chip.gt{flex:0 0 auto;scroll-snap-align:start}
+}
+/* Quiz/Live-Karten sind jetzt dunkel: Überschriften hell */
+.qz-card h3,.qz-card h4{color:#fff!important}
+.qz-card .qz-sub,.qz-card small{color:#c3cbe0}
+/* Vorschläge */
+.sugbox{display:flex;flex-direction:column;gap:6px;width:100%}
+.landing .sugbox{width:min(100%,540px)}
+.sugg3{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.sugc{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:12px;border:1px solid color-mix(in srgb,var(--gc) 45%,rgb(255 255 255 / .1));background:linear-gradient(135deg,color-mix(in srgb,var(--gc) 18%,#0a0d14),#0a0d14 70%);color:#fff;text-align:left;transition:transform .12s,box-shadow .2s}
+.sugc:hover{transform:translateY(-2px);box-shadow:0 0 18px -6px var(--gc)}
+.sugc .gi{flex:0 0 auto;width:34px;height:34px;border-radius:10px;overflow:hidden;display:grid;place-items:center;background:color-mix(in srgb,var(--gc) 35%,#0a0d14)}
+.sugc .gi img{width:100%;height:100%;object-fit:cover}.sugc .gi b{font-weight:900}
+.sugc .st{display:flex;flex-direction:column;min-width:0;flex:1}.sugc .st b{font-size:13.5px;line-height:1.2}.sugc .st small{font-size:12px;color:#aab4c4}
+.sugc .go2{color:var(--gc);font-size:12px}
+/* Gratulation pro Spiel */
+.mcard.themed .mascot-svg,.mcard.themed .mphoto{display:none!important}
+.cart{position:relative;width:min(280px,70vw);aspect-ratio:1;display:grid;place-items:center;animation:tpop .55s cubic-bezier(.2,1.5,.4,1) both}
+.cart .cbg{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 0 24px var(--ca))}
+.cart .crot{transform-origin:120px 120px;animation:cspin 14s linear infinite}
+.cart .cpic{position:relative;width:46%;aspect-ratio:1;border-radius:22px;overflow:hidden;border:3px solid var(--ca);box-shadow:0 0 0 4px rgb(0 0 0 / .45),0 0 30px -4px var(--ca);background:var(--cb);display:grid;place-items:center}
+.cart .cpic .av{--s:100%!important;width:100%!important;height:100%!important;border-radius:0}
+.mcard.themed .mtxt{color:#fff;text-shadow:0 0 18px var(--ca),0 3px 0 rgb(0 0 0 / .55);font-size:clamp(28px,7vw,44px);text-align:center}
+.csub{font-weight:700;color:#e8edf4;background:rgb(0 0 0 / .45);border:1px solid var(--ca);padding:4px 12px;border-radius:99px}
+.csub[hidden]{display:none}
+@keyframes cspin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.cart,.cart .crot{animation:none}}
+</style>
 
 <div class="scene" id="scene" aria-hidden="true"></div>
 <div class="collage" id="collage" aria-hidden="true"></div>
@@ -839,7 +891,7 @@ html:root[data-theme] .board .head .meta,html:root[data-theme] .board .legend{co
 <div class="wm" id="wm" aria-hidden="true"></div>
 <div class="wrap" lang="de">
   <header class="top">
-    <h1><a href="./" id="homelink" title="Zur Startseite">Dle<span>-</span>Arena</a></h1>
+    <h1><a href="./" id="homelink" title="Zur Startseite">Super <span>Daily</span></a></h1>
     <div class="hud" id="hud" aria-label="Dein Fortschritt">
       <button class="hp hstreak" type="button" data-act="stats" title="Serie: Tage in Folge mit mindestens einem gelösten Tagesrätsel oder Tagesquiz"><svg class="fl" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.6 1.8c.9 3.6-1.9 5.3-1.9 8 0 1.5 1.1 2.6 2.4 2.6 1.7 0 2.6-1.4 2.3-3.3 2.5 1.8 4.2 4.6 4.2 7.6 0 4-3.3 6.9-7.6 6.9S4.4 20.7 4.4 16.8c0-5.6 6.4-8.7 8.2-15z"/></svg><b id="hstreak">0</b></button>
       <button class="hp hlv" type="button" data-act="stats" title="Level und Erfahrungspunkte (XP)"><span class="lvb">Lv <b id="hlv">1</b></span><span class="xpb"><i id="hxp"></i></span></button>
@@ -892,7 +944,7 @@ html:root[data-theme] .board .head .meta,html:root[data-theme] .board .legend{co
   <div class="foot">
     <span id="datanote"></span>
     <span id="imgnote"></span>
-    <span>Inoffizielles Fan-Projekt. Pokémon © Nintendo/Creatures/GAME FREAK/The Pokémon Company; Bilder über PokeAPI. Dle-Arena isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc. Alle weiteren Marken gehören ihren jeweiligen Inhabern.</span>
+    <span>Inoffizielles Fan-Projekt. Pokémon © Nintendo/Creatures/GAME FREAK/The Pokémon Company; Bilder über PokeAPI. Super Daily isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc. Alle weiteren Marken gehören ihren jeweiligen Inhabern.</span>
   </div>
 </div>
 <div class="toast" id="toast" hidden></div>
@@ -1008,7 +1060,7 @@ const I18N = (() => {
     if (l !== "de" && !d && !HARVEST) { l = "de"; }
     lang = l; D = d; cache.clear();
     document.documentElement.lang = l === "bks" ? "bs" : l === "zh" ? "zh-Hans" : l;
-    rewalk(document.body); document.title = "Super Daily – " + tr("Tägliche Rate-Spiele") + " · Wordle · Dle-Arena";
+    rewalk(document.body); document.title = "Super Daily – " + tr("Tägliche Rate-Spiele") + " · Wordle";
     if (after) after();
   }
   return {
@@ -1411,8 +1463,53 @@ function setWinImg(file) {
 let mTimer;
 const WIN_WORDS = ["Gelöst!", "Richtig!", "Volltreffer!", "Stark!", "Perfekt!"];
 const winPhoto = () => store.mascot === false ? null : (getWinImg() || window.__WINIMG || null);
+
+/* ---------- Gratulation pro Spiel (eigene Motive, keine Original-Logos) ---------- */
+const CONG = {
+  bleach: { w: ["Bankai!", "Shikai!", "Getsuga!"], a: "#ff7a1a", b: "#141026", m: "slash" },
+  pokemon: { w: ["Gefangen!", "Sehr effektiv!", "Volltreffer!"], a: "#ffd23f", b: "#163a6b", m: "bolt" },
+  lol: { w: ["Pentakill!", "Legendär!", "Sieg!"], a: "#c8aa6e", b: "#0a1428", m: "crest" },
+  r6: { w: ["Mission erfüllt!", "Clutch!", "Gesichert!"], a: "#f5c518", b: "#11161d", m: "shield" },
+  naruto: { w: ["Dattebayo!", "Echter Shinobi!", "Mission Rang S!"], a: "#ff8c1a", b: "#1b2a3a", m: "spiral" },
+  onepiece: { w: ["Kopfgeld kassiert!", "Schatz gefunden!", "Auf zum nächsten Abenteuer!"], a: "#e63946", b: "#2a1a0e", m: "chest" },
+  dragonball: { w: ["Kamehameha!", "Über 9000!", "Volle Kraft!"], a: "#ffb000", b: "#10204a", m: "orb" },
+  valorant: { w: ["Ace!", "Clutch!", "Flawless!"], a: "#ff4655", b: "#0f1923", m: "shards" },
+  clashroyale: { w: ["Drei Kronen!", "Perfekter Angriff!", "Kronen-Regen!"], a: "#ffcc33", b: "#1d2a6b", m: "crown" },
+  fortnite: { w: ["Victory!", "Nummer 1!", "Letzter im Sturm!"], a: "#b26bff", b: "#1a0e4d", m: "storm" },
+  wordle: { w: ["Wortmeister!", "Genial!", "Prima!"], a: "#3ddc84", b: "#0a1a12", m: "tiles" },
+};
+function congArt(m, a, inner, word) {
+  const g = {
+    slash: `<path d="M24 196 L214 30" stroke="${a}" stroke-width="10" stroke-linecap="round" opacity=".9"/><path d="M40 206 L224 52" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".8"/><path d="M200 196 L60 40" stroke="${a}" stroke-width="6" stroke-linecap="round" opacity=".5"/>`,
+    bolt: `<path d="M138 8 L62 128 H112 L92 232 L182 96 H128 Z" fill="${a}" stroke="#fff" stroke-width="4" stroke-linejoin="round" opacity=".95"/>`,
+    crest: `<path d="M120 6 L214 58 V170 L120 230 L26 170 V58 Z" fill="none" stroke="${a}" stroke-width="8"/><path d="M120 22 L200 66 V162 L120 214 L40 162 V66 Z" fill="none" stroke="#fff" stroke-width="2" opacity=".5"/>`,
+    shield: `<path d="M120 8 L210 40 V120 C210 180 170 214 120 232 C70 214 30 180 30 120 V40 Z" fill="none" stroke="${a}" stroke-width="8"/><path d="M120 30 V210 M40 118 H200" stroke="#fff" stroke-width="2" opacity=".4"/>`,
+    spiral: `<path d="M120 120 m0 -10 a10 10 0 1 1 -10 10 a20 20 0 1 1 20 20 a32 32 0 1 1 -32 -32 a46 46 0 1 1 46 46 a62 62 0 1 1 -62 -62 a80 80 0 1 1 80 80 a98 98 0 1 1 -98 -98" fill="none" stroke="${a}" stroke-width="6" opacity=".85"/>`,
+    chest: `<rect x="40" y="120" width="160" height="96" rx="10" fill="#7a4a1e" stroke="${a}" stroke-width="6"/><path d="M40 130 C40 70 200 70 200 130" fill="#9a5f28" stroke="${a}" stroke-width="6"/><rect x="108" y="138" width="24" height="30" rx="4" fill="#ffd23f"/><path d="M60 110 L40 70 M120 92 V40 M180 110 L200 70" stroke="#ffd23f" stroke-width="5" stroke-linecap="round"/>`,
+    orb: `<circle cx="120" cy="120" r="104" fill="none" stroke="${a}" stroke-width="5" opacity=".6"/><circle cx="120" cy="120" r="86" fill="none" stroke="#7ec8ff" stroke-width="10" opacity=".5"/><circle cx="120" cy="120" r="70" fill="#7ec8ff" opacity=".18"/>`,
+    shards: `<path d="M20 40 L100 120 L20 200 Z" fill="${a}" opacity=".85"/><path d="M220 40 L140 120 L220 200 Z" fill="${a}" opacity=".85"/><path d="M60 20 L120 70 L180 20" fill="none" stroke="#fff" stroke-width="4" opacity=".7"/>`,
+    crown: `<path d="M30 170 L40 60 L86 110 L120 40 L154 110 L200 60 L210 170 Z" fill="${a}" stroke="#7a4a00" stroke-width="5" stroke-linejoin="round"/><rect x="30" y="170" width="180" height="26" rx="6" fill="#e0a018" stroke="#7a4a00" stroke-width="5"/><circle cx="120" cy="150" r="10" fill="#ff4655"/><circle cx="76" cy="150" r="7" fill="#3ddc84"/><circle cx="164" cy="150" r="7" fill="#4aa8ff"/>`,
+    storm: `<circle cx="120" cy="120" r="108" fill="none" stroke="${a}" stroke-width="10" stroke-dasharray="30 14" opacity=".8"/><path d="M60 40 L84 64 M180 40 L156 64 M40 160 L70 150 M200 160 L170 150" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".7"/>`,
+    tiles: [...String(word || "SUPER").toUpperCase().slice(0, 5).padEnd(5, " ")].map((ch, i) => `<rect x="${8 + i * 46}" y="96" width="40" height="48" rx="7" fill="${a}" stroke="#fff" stroke-width="2"/><text x="${28 + i * 46}" y="130" text-anchor="middle" font-size="28" font-weight="900" fill="#fff" font-family="sans-serif">${esc(ch)}</text>`).join(""),
+  }[m] || "";
+  return `<div class="cart"><svg viewBox="0 0 240 240" class="cbg" aria-hidden="true"><defs><radialGradient id="cg_${m}" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="${a}" stop-opacity=".55"/><stop offset="1" stop-color="${a}" stop-opacity="0"/></radialGradient></defs><circle cx="120" cy="120" r="120" fill="url(#cg_${m})"/><g class="crot">${g}</g></svg>${inner ? `<div class="cpic">${inner}</div>` : ""}</div>`;
+}
+function showCongrats(themeId, opts = {}) {
+  if (store.mascot === false) return;
+  const T = CONG[themeId]; if (!T || getWinImg()) return showMascot();
+  const el = $("#mascot"), card = el.querySelector(".mcard");
+  card.classList.add("themed"); card.style.setProperty("--ca", T.a); card.style.setProperty("--cb", T.b);
+  let art = card.querySelector(".cart"); if (art) art.remove();
+  card.querySelector(".mtxt").insertAdjacentHTML("beforebegin", congArt(T.m, T.a, opts.inner, opts.word));
+  $("#mtxt").textContent = T.w[Math.floor(Math.random() * T.w.length)];
+  let sub = card.querySelector(".csub"); if (!sub) { card.insertAdjacentHTML("beforeend", '<div class="csub"></div>'); sub = card.querySelector(".csub"); }
+  sub.textContent = opts.sub || ""; sub.hidden = !opts.sub;
+  const b = card.querySelector(".mbadge"); if (b) b.hidden = true;
+  el.hidden = false; clearTimeout(mTimer); mTimer = setTimeout(() => { el.hidden = true; card.classList.remove("themed"); }, 2400);
+}
 function showMascot(word, badge) {
   if (store.mascot === false) return;
+  { const c = $("#mascot .mcard"); if (c) { c.classList.remove("themed"); const a = c.querySelector(".cart"); if (a) a.remove(); const s = c.querySelector(".csub"); if (s) s.hidden = true; } }
   const el = $("#mascot"); $("#mtxt").textContent = word || WIN_WORDS[Math.floor(Math.random() * WIN_WORDS.length)];
   { let b = el.querySelector(".mbadge"); if (!b) { el.querySelector(".mcard").insertAdjacentHTML("afterbegin", '<div class="mbadge" hidden></div>'); b = el.querySelector(".mbadge"); } b.textContent = badge || ""; b.hidden = !badge; }
   const ci = getWinImg() || window.__WINIMG || null, ph = $("#mphoto");
@@ -1801,7 +1898,7 @@ function renderWordle() {
   const n = st.g.length;
   const end = st.done ? `<div class="wdend">${st.won ? `<div>Gelöst in <b>${n}</b> ${n === 1 ? "Versuch" : "Versuchen"}!</div>` : `<div>Das Wort war</div><b class="w">${esc(target.toUpperCase())}</b>`}
     <div class="wdbar">${wdv.mode === "daily" ? `<button class="btn primary" type="button" data-wd="share">Ergebnis kopieren</button><button class="btn" type="button" data-wd="endless">Endlos weiterspielen</button>` : `<button class="btn primary" type="button" data-wd="next">Nächstes Wort</button>`}</div>
-    ${wdv.mode === "daily" ? `<small style="color:#aab4c4">Neues Wort um 00:00 Uhr</small>` : ""}</div>` : "";
+    ${wdv.mode === "daily" ? `<small style="color:#aab4c4">Neues Wort um 00:00 Uhr</small>` : ""}${suggestHtml(3, "wordle")}</div>` : "";
   box.innerHTML = `<div class="wdhead"><h2>Wordle</h2><p>Errate das Wort mit 5 Buchstaben. Grün = richtige Stelle, Gelb = kommt vor, Grau = kommt nicht vor.</p></div>
     <div class="wdbar">
       <span class="wdseg" role="group" aria-label="Sprache der Wörter" data-noi18n>${WD_LANGS.map(([id, nm]) => `<button type="button" data-wdl="${id}" aria-pressed="${l === id}">${esc(nm)}</button>`).join("")}</span>
@@ -1837,7 +1934,7 @@ function wdSubmit() {
   if (won || lost) { st.won = won; st.done = true; }
   save(); render(false); SFX.flip(5);
   if (won) setTimeout(() => {
-    SFX.right(); showMascot(); confetti();
+    SFX.right(); showCongrats("wordle", { word: target, sub: `${target.toUpperCase()} · ${st.g.length}/${lv.n}` }); confetti();
     const s = WS().stats[l] || (WS().stats[l] = { wins: 0, played: 0, streak: 0, best: 0, last: null, dist: {} });
     if (wdv.mode === "daily") { s.played++; s.wins++; s.streak = s.last === yday() ? s.streak + 1 : 1; s.best = Math.max(s.best, s.streak); s.last = today; s.dist[st.g.length] = (s.dist[st.g.length] || 0) + 1; st.aw = award("daily", { tries: st.g.length, g: "wordle" }); }
     else award("endless", { g: "wordle" });
@@ -1872,10 +1969,36 @@ addEventListener("keydown", e => {
   if (e.key.length === 1) wdType(e.key);
 });
 
+/* ---------- Vorschläge: was als Nächstes spielen ---------- */
+function suggestions(n = 3, skip, noCur) {
+  const out = [], seen = new Set(), add = x => { if (out.length < n && !seen.has(x.k) && x.k !== skip) { seen.add(x.k); out.push(x); } };
+  const open = g => modesOf(g).filter(m => !solved(g, m));
+  const item = (g, m) => ({ k: g.id + ":" + m.id, attr: `data-act="next" data-g="${g.id}" data-m="${m.id}"`, img: (DATA.hub || {})[g.id], ico: g.code, gc: g.color, t: N(g.name), s: N(m.label) });
+  const gi = Math.max(0, GAMES.indexOf(game));
+  const order = GAMES.map((_, i) => GAMES[(gi + i) % GAMES.length]);
+  // 1. restliche Modi im aktuellen Spiel, 2. angefangene Spiele, 3. Wordle/Tagesquiz, 4. neue Spiele
+  if (!noCur) open(game).forEach(m => add(item(game, m)));
+  order.filter(g => g !== game && open(g).length && open(g).length < modesOf(g).length).forEach(g => add(item(g, open(g)[0])));
+  try { const l = wdLang(); if (!wdDay(l).won) add({ k: "wordle", attr: 'data-wd="home"', ico: "W", gc: "#3ddc84", t: "Wordle", s: "Wort des Tages" }); } catch (e) {}
+  if (!quizDoneToday()) add({ k: "quiz", attr: 'data-q="home"', ico: "?", gc: "#8b7bff", t: "Tagesquiz", s: "18 Fragen" });
+  order.filter(g => open(g).length && !(noCur && g === game)).forEach(g => add(item(g, open(g)[0])));
+  return out;
+}
+function suggestHtml(n = 3, skip, title = "Als Nächstes", noCur) {
+  const s = suggestions(n, skip, noCur); if (!s.length) return "";
+  return `<div class="sugbox"><span class="glbl">${title}</span><div class="sugg3">${s.map(x => `<button type="button" class="sugc" ${x.attr} style="--gc:${x.gc}"><span class="gi">${x.img ? `<img src="${x.img}" alt="" loading="lazy">` : `<b>${esc(x.ico)}</b>`}</span><span class="st"><b>${esc(x.t)}</b><small>${esc(x.s)}</small></span><span class="go2">▶</span></button>`).join("")}</div></div>`;
+}
+
 /* ---------- Rendering ---------- */
 const board = $("#board"), nav = $("#games");
 function renderNav() {
-  nav.innerHTML = GAMES.map(g => `<button class="chip" type="button" data-game="${g.id}" style="--gc:${g.color}" aria-current="${!["quiz", "live", "arena", "wordle"].includes(view) && g === game}"><i></i>${esc(N(g.name))}${modesOf(g).every(m => solved(g, m)) ? '<span class="tick" aria-label="heute alles gelöst">✓</span>' : ""}</button>`).join("") + `<button class="chip wordlechip" type="button" data-wd="home" aria-current="${view === "wordle"}"><i></i>Wordle</button><button class="chip quizchip" type="button" data-q="home" aria-current="${view === "quiz"}"><i></i>Quiz-Arena</button><button class="chip livechip" type="button" data-lv="home" aria-current="${view === "live"}"><i></i>Live</button><button class="chip arenachip" type="button" data-lv="home" aria-current="${view === "arena"}"><i></i>Arena</button>`;
+  const H = DATA.hub || {}, inGame = !["quiz", "live", "arena", "wordle"].includes(view);
+  const tile = g => { const ms = modesOf(g), n = ms.filter(m => solved(g, m)).length, all = n === ms.length;
+    return `<button class="chip gt ${g.id === "pokemon" ? "sprite" : g.id === "r6" ? "icon" : g.id === "clashroyale" ? "card" : ""}" type="button" data-game="${g.id}" style="--gc:${g.color}" aria-current="${inGame && g === game}" title="${esc(N(g.name))} – ${n}/${ms.length} heute gelöst"><span class="gi">${H[g.id] ? `<img src="${H[g.id]}" alt="" loading="lazy">` : `<b>${esc(g.code)}</b>`}</span><span class="gn">${esc(N(g.name))}</span><span class="gp ${all ? "done" : ""}">${all ? "✓" : `${n}/${ms.length}`}</span></button>`; };
+  const wdn = (() => { try { return WD_LANGS.filter(([l]) => wdDay(l).won).length; } catch (e) { return 0; } })();
+  const xt = (cls, attr, ico, name, cur, badge) => `<button class="chip gt x ${cls}" type="button" ${attr} aria-current="${cur}"><span class="gi"><b>${ico}</b></span><span class="gn">${name}</span>${badge ? `<span class="gp done">${badge}</span>` : ""}</button>`;
+  nav.innerHTML = `<div class="gsec"><span class="glbl">Rate-Spiele</span><div class="ggrid">${GAMES.map(tile).join("")}</div></div>
+    <div class="gsec gmore"><span class="glbl">Mehr</span><div class="ggrid">${xt("wordlechip", 'data-wd="home"', "W", "Wordle", view === "wordle", wdn ? "✓" : "")}${xt("quizchip", 'data-q="home"', "?", "Quiz-Arena", view === "quiz", quizDoneToday() ? "✓" : "")}${xt("livechip", 'data-lv="home"', "⚡", "Live", view === "live", "")}${xt("arenachip", 'data-lv="home"', "✛", "Arena", view === "arena", "")}</div></div>`;
   const all = GAMES.flatMap(g => modesOf(g).map(m => [g, m]));
   $("#solved").textContent = `${all.filter(([g, m]) => solved(g, m)).length}/${all.length}`;
 }
@@ -1967,10 +2090,11 @@ function landingHtml() {
   const cards = modesOf(game).map(m => card(m.id, m.ico, m.oc || "#94a3b8", m.label, m.desc || "", solved(game, m)));
   cards.push(card("endless", "∞", "#94a3b8", "Endlos", "Unbegrenzt üben, zählt nicht zur Serie"));
   cards.push(card("duel", "⇄", "#f472b6", "Duell", "Gegen Freunde mit einem Code spielen"));
-  return `<h2 class="logo"><small>DLE-ARENA · RÄTSEL #${day + 1}</small>${esc(N(game.name))}</h2>
+  return `<h2 class="logo"><small>SUPER DAILY · RÄTSEL #${day + 1}</small>${esc(N(game.name))}</h2>
     <p class="ghead">Errate <em>${esc(N(game.name))}</em>-${esc(game.pl)}</p>
     <p class="ltag">${esc(game.lt || game.tag || "")}</p>
     ${todayHtml()}
+    ${suggestHtml(3, null, "Andere Spiele", true)}
     <div class="modecards">${cards.join("")}</div>
     ${hubHtml()}`;
 }
@@ -1996,7 +2120,7 @@ function duelHtml() {
   return `<div class="duel"><div class="row" style="justify-content:space-between"><div><div class="label">Duell-Code · ${esc(N(duel.m.label))}</div><div class="code">${esc(duel.code)}</div></div>
     <div class="row"><button class="btn" type="button" data-act="copycode">Code kopieren</button><button class="btn ghost" type="button" data-act="leaveduel">Duell verlassen</button></div></div>
     ${tafelHtml()}
-    <div class="note">Freunde öffnen die Dle-Arena, wählen <b>Duell</b> und geben den Code ein – auf der eigenen Website geht auch ein Link mit <b>#${esc(duel.code)}</b> am Ende.${game.gens ? ` Auswahl: <b>${esc(genLabel(duel.gens))}</b>.` : ""}</div></div>`;
+    <div class="note">Freunde öffnen die Super Daily, wählen <b>Duell</b> und geben den Code ein – auf der eigenen Website geht auch ein Link mit <b>#${esc(duel.code)}</b> am Ende.${game.gens ? ` Auswahl: <b>${esc(genLabel(duel.gens))}</b>.` : ""}</div></div>`;
 }
 function stageHtml(wrong, won, txt) {
   if (won) return "";
@@ -2205,10 +2329,10 @@ function winHtml(st) {
       ${nx ? `<button class="btn" type="button" data-act="next" data-g="${nx[0].id}" data-m="${nx[1].id}">Weiter: ${esc(N(nx[0].name))} · ${esc(N(nx[1].label))}</button>` : ""}
       ${st.kind === "duel" ? `<button class="btn" type="button" data-act="newduel">Neues Duell</button>` : ""}
       ${st.kind === "daily" ? `<button class="btn ghost" type="button" data-play="endless">Endlos weiterspielen</button>` : ""}
-    </div><div id="sharebox"></div></section>`;
+    </div><div id="sharebox"></div>${st.kind === "daily" || st.kind === "archiv" ? suggestHtml(3, game.id + ":" + kind.id) : ""}</section>`;
 }
 function shareText(st) {
-  const head = st.kind === "duel" ? `Dle-Arena Duell ${N(duel.code)} · ${N(game.name)} ${N(kind.label)}` : `Dle-Arena · ${N(game.name)} ${N(kind.label)} #${(st.kind === "archiv" ? archDay : day) + 1}${game.gens ? " · " + genLabel(st.gens) : ""}`;
+  const head = st.kind === "duel" ? `Super Daily Duell ${N(duel.code)} · ${N(game.name)} ${N(kind.label)}` : `Super Daily · ${N(game.name)} ${N(kind.label)} #${(st.kind === "archiv" ? archDay : day) + 1}${game.gens ? " · " + genLabel(st.gens) : ""}`;
   const body = kind.type === "classic"
     ? st.guesses.map(n => { const c = game.byName.get(n); return game.cols.map(col => { const r = compare(col, c[col.k], st.target[col.k], st.target); return emoji(DIFF() === "hard" && r === "part" ? "bad" : r); }).join(""); }).join("\n")
     : st.guesses.map(n => emoji(n === st.target.name ? "ok" : "bad")).join("");
@@ -2280,7 +2404,7 @@ function guess(name) {
     const ao = st.kind === "endless" ? endless : st.kind === "race" ? race : st.raw; if (ao && aw) ao.aw = aw;
   }
   save(); render(); if (st.kind === "race") lrProgress();
-  if (name === st.target.name) { SFX.right(); showMascot(); confetti(); }
+  if (name === st.target.name) { SFX.right(); showCongrats(game.id, { inner: avatar(st.target, 120, game.id === "pokemon" ? PK_ART(st.target.id) : null), sub: `${N(st.target.name)} · ${st.guesses.length} ${st.guesses.length === 1 ? "Versuch" : "Versuche"}` }); confetti(); }
   else if (kind.type === "classic") { SFX.flip(game.cols.length); setTimeout(() => SFX.wrong(), game.cols.length * 110); }
   else SFX.wrong();
 }
@@ -2333,7 +2457,7 @@ document.addEventListener("click", e => {
   if (act === "newduel") { const gens = gensFor(game); duel = { code: newCode(game, gens, kind), g: game, gens, m: kind }; play = "duel"; return render(); }
   if (act === "joinduel") return joinDuel($("#codein").value);
   if (act === "leaveduel") { duel = null; return render(); }
-  if (act === "copycode") return copy(`Dle-Arena Duell: ${N(game.name)} · ${N(duel.m.label)}${game.gens ? " (" + genLabel(duel.gens) + ")" : ""}\nCode: ${duel.code}\nIn der Dle-Arena „Duell“ wählen und den Code eingeben.`, "Code kopiert");
+  if (act === "copycode") return copy(`Super Daily Duell: ${N(game.name)} · ${N(duel.m.label)}${game.gens ? " (" + genLabel(duel.gens) + ")" : ""}\nCode: ${duel.code}\nIn der Super Daily „Duell“ wählen und den Code eingeben.`, "Code kopiert");
   if (act === "stats") return modal(statsHtml());
   if (act === "help") return modal(helpHtml());
   if (act === "share") { if (play === "duel" && !myName()) { toast("Trag zuerst unten deinen Namen ein"); const i = $("#myname"); if (i) i.focus(); return; } return copy(shareText(state()), "Ergebnis kopiert"); }
@@ -2608,7 +2732,7 @@ function renderQuiz() {
   $("#wm").textContent = ""; $("#scene").innerHTML = ""; $("#parts").innerHTML = ""; $("#collage").innerHTML = ""; sceneFor = null; collageFor = null;
   $("#landing").hidden = true; board.hidden = true; nav.hidden = false; const box = $("#quiz"); box.hidden = false;
   renderNav();
-  $("#datanote").textContent = "Quiz-Arena – alle Fragen werden aus den geprüften Spieldaten der Dle-Arena erzeugt.";
+  $("#datanote").textContent = "Quiz-Arena – alle Fragen werden aus den geprüften Spieldaten der Super Daily erzeugt.";
   $("#imgnote").textContent = "";
   const st = qCur();
   let h = "";
@@ -2719,7 +2843,7 @@ function qSend(st) {
   const code = qEncode(st), link = linkFor(st), nx = nextAct(st), who = nx ? pendingOf(st).filter(p => p !== qMe(st)).map(p => esc(st.n[p])).join(" und ") : "";
   return `<button class="qz-back" type="button" data-q="match">← Zum Spiel</button>
   <div class="qz-card"><h3>${nx ? `Schick den Code an ${who || "deine Mitspieler"}${st.m === 2 ? " (am besten in eure Gruppe)" : ""}` : "Ergebnis teilen"}</h3>
-  <p class="qz-note">${nx ? `${who || "Der nächste Spieler"} öffnet die Dle-Arena → Quiz-Arena → „Code eingeben“ und fügt ihn ein${link ? " – oder tippt einfach auf den Link" : ""}.` : "Mit diesem Code sehen alle das Endergebnis."}</p>
+  <p class="qz-note">${nx ? `${who || "Der nächste Spieler"} öffnet die Super Daily → Quiz-Arena → „Code eingeben“ und fügt ihn ein${link ? " – oder tippt einfach auf den Link" : ""}.` : "Mit diesem Code sehen alle das Endergebnis."}</p>
   <textarea class="qz-in qz-code" readonly rows="4" id="qzout">${esc(code)}</textarea>
   <div class="qz-row"><button class="qz-big go" type="button" data-q="copy"><span><b>Code kopieren</b></span></button>${link ? `<button class="qz-big blue" type="button" data-q="copylink"><span><b>Link kopieren</b></span></button>` : ""}</div></div>`;
 }
