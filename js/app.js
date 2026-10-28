@@ -4932,7 +4932,7 @@ function w1RelayChg() { const st = LV.room ? w1RelayState() : ""; if (st !== w1R
 // Titelbild der Startseite für Rate-Spiele: eigene Gestaltung in der Spielfarbe (keine fremden Figuren-Bilder)
 function w1Art(f) {
   const sy = [["✓", 0], ["≈", 1], ["✗", 2], ["?", 3], ["✓", 0], ["↑", 1], ["✗", 2], ["✓", 0], ["≈", 1]];
-  return `<div class="hb-art w1art w2art" aria-hidden="true"><img class="w2hero" src="img/covers/hero-card.webp" srcset="img/covers/hero-card-s.webp 600w, img/covers/hero-card.webp 1200w" sizes="(max-width:700px) 100vw, 860px" alt="" width="1200" height="800" fetchpriority="high" decoding="async"><b class="w1code">${esc(String(f.ico || "").slice(0, 3))}</b><div class="w1grid">${sy.map(([t, c], i) => `<span class="w1c c${c}" style="--i:${i}">${t}</span>`).join("")}</div></div>`;
+  return `<div class="hb-art w1art" aria-hidden="true"><b class="w1code">${esc(String(f.ico || "").slice(0, 3))}</b><div class="w1grid">${sy.map(([t, c], i) => `<span class="w1c c${c}" style="--i:${i}">${t}</span>`).join("")}</div></div>`;
 }
 // Seite „Über & Datenschutz“
 document.addEventListener("click", e => { const t = e.target.closest("[data-w1info]"); if (!t) return; e.preventDefault(); closePops(); hubHome = false; view = "info"; try { window.scrollTo({ top: 0 }); } catch (x) {} render(false); });
