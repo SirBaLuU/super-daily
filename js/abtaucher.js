@@ -167,7 +167,7 @@ function world(d) {
 function diverHtml() {
   return `<span class="abt-dv${AB.react ? " " + AB.react : ""}" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><use href="#abt-s-diver"/></svg><i class="abt-bb"></i><i class="abt-bb"></i><i class="abt-bb"></i></span>`;
 }
-const seg = () => `<div class="abt-seg" role="group" aria-label="Spielart">${[["daily", "Heute"], ["endless", "Endlos"], ["archive", "Archiv"], ["duel", "1 vs 1"]].map(([k, l]) => `<button type="button" data-abm="${k}" aria-pressed="${AB.mode === k || (k === "archive" && AB.mode === "archlist")}">${l}</button>`).join("")}</div>`;
+const seg = () => `<div class="abt-seg" role="group" aria-label="Spielart">${[["daily", "Heute"], ["endless", "Endlos"], ["archive", "Archiv"], ["duel", "1 gegen 1"]].map(([k, l]) => `<button type="button" data-abm="${k}" aria-pressed="${AB.mode === k || (k === "archive" && AB.mode === "archlist")}">${l}</button>`).join("")}</div>`;
 function helpHtml() {
   const S = AB.mode === "archlist" || (AB.mode === "duel" && !AB.du) ? null : st(), T = S && S.q && !S.done ? task(S) : null;
   return `<div class="abt-help"><p><b>So geht's:</b> Jeden Tag gibt es 7 Aufgaben, zum Beispiel „Nenne ein Nachbarland von Österreich“. Jede richtige Antwort zählt – aber je <b>seltener</b> sie ist, desto mehr Punkte gibt es und desto <b>tiefer</b> taucht dein Taucher.</p>

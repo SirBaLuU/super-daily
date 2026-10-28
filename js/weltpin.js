@@ -201,7 +201,7 @@ function wpNext() {
 // ---------- Ansicht ----------
 function wpSeg() {
   const m = WP.view === "archive" ? "archive" : WP.mode;
-  return `<span class="wdseg" role="group" aria-label="Modus">${[["daily", "Täglich"], ["endless", "Endlos"], ["archive", "Archiv"], ["duel", "1 gegen 1"]].map(([k, l]) => `<button type="button" data-wpm="${k}" aria-pressed="${m === k}">${l}</button>`).join("")}</span>`;
+  return `<span class="wdseg" role="group" aria-label="Modus">${[["daily", "Heute"], ["endless", "Endlos"], ["archive", "Archiv"], ["duel", "1 gegen 1"]].map(([k, l]) => `<button type="button" data-wpm="${k}" aria-pressed="${m === k}">${l}</button>`).join("")}</span>`;
 }
 function wpHelpHtml() {
   return `<div class="rb-help wp-help"><p><b>So geht's:</b> Lies die Hinweise zum gesuchten Ort und tippe auf die Weltkarte, wo du ihn vermutest. Mit zwei Fingern (oder Mausrad, + / −) zoomst du, durch Ziehen verschiebst du die Karte. „Pin bestätigen“ gibt ab – vorher kannst du den Pin beliebig oft versetzen. Kein Zeitlimit.</p>

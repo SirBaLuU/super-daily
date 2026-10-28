@@ -1163,7 +1163,7 @@ function renderWordle() {
     <div class="wdbar">${wdv.mode === "daily" ? `<button class="btn primary" type="button" data-wd="share"><i class="w2i" style="--i:var(--w2-share2)" aria-hidden="true"></i>${canShareOut() ? "Ergebnis teilen" : "Ergebnis kopieren"}</button><button class="btn" type="button" data-w2img="wd"><i class="w2i" style="--i:var(--w2-export)" aria-hidden="true"></i>Als Bild</button><button class="btn" type="button" data-wd="endless">Endlos weiterspielen</button>` : wdv.mode === "archive" ? `<button class="btn primary" type="button" data-wd="archlist">Zurück zum Archiv</button><button class="btn" type="button" data-wdm="daily">Zum Tageswort</button>` : `<button class="btn primary" type="button" data-wd="next">Nächstes Wort</button>`}</div>
     ${wdv.mode === "daily" ? `<div id="sharebox"></div>${resCardHtml(WS().stats[l], st.won ? n : -1, { played: (WS().stats[l] || {}).played || 0, keys: Array.from({ length: Math.max(lv.n, ...Object.keys((WS().stats[l] || {}).dist || {}).map(Number).filter(x => x > 0 && x < 8)) }, (_, i) => String(i + 1)), next: "Neues Wort in", yday: day > 0 ? wdYday(l).toUpperCase() : "" })}` : ""}${suggestHtml(2, "wordle")}</div>` : "";
   box.innerHTML = `<div class="wdhead"><h2><span class="qxlogo" aria-hidden="true">Q</span>Quintix <button class="qbtn" type="button" data-wd="help" title="So funktioniert's" aria-label="Hilfe">?</button></h2></div>
-    <div class="wdtop"><span class="wdseg" role="group" aria-label="Spielart">${[["daily", "Täglich"], ["archive", "Archiv"], ["endless", "Endlos"]].map(([id, t]) => `<button type="button" data-wdm="${id}" aria-pressed="${wdv.mode === id}">${t}</button>`).join("")}</span>
+    <div class="wdtop"><span class="wdseg" role="group" aria-label="Spielart">${[["daily", "Heute"], ["endless", "Endlos"], ["archive", "Archiv"]].map(([id, t]) => `<button type="button" data-wdm="${id}" aria-pressed="${wdv.mode === id}">${t}</button>`).join("")}</span>
     <details class="wdopts" ${wdv.opt != null ? (wdv.opt ? "open" : "") : matchMedia("(min-width:701px)").matches ? "open" : ""}><summary aria-label="Optionen: Sprache, Schwierigkeit, Kontrast">⚙ <span data-noi18n>${esc((WD_LANGS.find(x => x[0] === l) || [l, l])[1])}</span></summary>
     <div class="wdbar">
       <span class="wdseg" role="group" aria-label="Sprache der Wörter" data-noi18n>${WD_LANGS.map(([id, nm]) => `<button type="button" data-wdl="${id}" aria-pressed="${l === id}">${esc(nm)}</button>`).join("")}</span>
@@ -1191,7 +1191,7 @@ function wdArchListHtml(l) {
   return `<div class="wdhead"><h2><span class="qxlogo" aria-hidden="true">Q</span>Quintix <button class="qbtn" type="button" data-wd="help" title="So funktioniert's" aria-label="Hilfe">?</button></h2><p>Archiv: die Wörter der letzten ${WD_ARCH_N} Tage nachspielen – zählt nicht für Serie und Statistik.</p></div>
     <div class="wdbar">
       <span class="wdseg" role="group" aria-label="Sprache der Wörter" data-noi18n>${WD_LANGS.map(([id, nm]) => `<button type="button" data-wdl="${id}" aria-pressed="${l === id}">${esc(nm)}</button>`).join("")}</span>
-      <span class="wdseg" role="group" aria-label="Spielart">${[["daily", "Täglich"], ["archive", "Archiv"], ["endless", "Endlos"]].map(([id, t]) => `<button type="button" data-wdm="${id}" aria-pressed="${wdv.mode === id}">${t}</button>`).join("")}</span>
+      <span class="wdseg" role="group" aria-label="Spielart">${[["daily", "Heute"], ["endless", "Endlos"], ["archive", "Archiv"]].map(([id, t]) => `<button type="button" data-wdm="${id}" aria-pressed="${wdv.mode === id}">${t}</button>`).join("")}</span>
     </div>
     <div class="rb-arch wdarchlist" id="wdarchlist">${rows.join("") || `<span class="rb-ex">Das Archiv füllt sich ab morgen.</span>`}</div>`;
 }
@@ -1832,7 +1832,7 @@ function renderSize() {
   const box = $("#sizeit");
   if (!SZ.d) { box.innerHTML = `<div class="wdhead"><h2>Size It Up</h2><p>Lädt …</p></div>`; szLoad().then(() => view === "size" && render(false)); return; }
   if (!SZ.rounds || SZ.seed !== (SZ.mode === "daily" ? "size:" + today : SZ.seed)) { if (SZ.mode === "daily") { SZ.seed = "size:" + today; } SZ.rounds = szMake(SZ.seed); SZ.s = 0; }
-  const st = szState(), seg = `<span class="wdseg">${[["daily", "Täglich"], ["endless", "Endlos"]].map(([m, t]) => `<button type="button" data-szm="${m}" aria-pressed="${SZ.mode === m}">${t}</button>`).join("")}</span>`;
+  const st = szState(), seg = `<span class="wdseg">${[["daily", "Heute"], ["endless", "Endlos"]].map(([m, t]) => `<button type="button" data-szm="${m}" aria-pressed="${SZ.mode === m}">${t}</button>`).join("")}</span>`;
   const tot = szSum(st.s), bar = `<div class="sz-bar" aria-label="Runden">${[0, 1, 2, 3, 4].map(k => `<span class="sz-slot ${k < st.s.length ? szCls(st.s[k]) : k === st.s.length && !st.done ? "cur" : ""}"></span>`).join("")}<span class="sz-tot">Gesamt: <b>${tot}</b></span></div>`;
   if (st.done) {
     const dailyOpen = SZ.mode !== "daily" && !szDay().done;
@@ -2051,7 +2051,7 @@ function rbHelpHtml() {
     <p><b>Blitz:</b> 60 Sekunden pro Runde, danach wird automatisch abgegeben.</p>
     <p><b>Daten:</b> Grenzen aus Natural Earth 1:50 Mio. (gemeinfrei), de-facto-Verlauf; umstrittene Grenzabschnitte sind ausgenommen. Flaggen: <a href="https://github.com/lipis/flag-icons" target="_blank" rel="noopener noreferrer">flag-icons</a> (MIT-Lizenz). Kartenlink: OpenStreetMap.</p></div>`;
 }
-function rbSegHtml() { return `<span class="wdseg" role="group" aria-label="Modus">${[["daily", "Täglich"], ["archive", "Archiv"], ["practice", "Endlos"]].map(([m, l]) => `<button type="button" data-rbm="${m}" aria-pressed="${RB.view === "archive" ? m === "archive" : RB.mode === m}">${l}</button>`).join("")}</span>`; }
+function rbSegHtml() { return `<span class="wdseg" role="group" aria-label="Modus">${[["daily", "Heute"], ["practice", "Endlos"], ["archive", "Archiv"]].map(([m, l]) => `<button type="button" data-rbm="${m}" aria-pressed="${RB.view === "archive" ? m === "archive" : RB.mode === m}">${l}</button>`).join("")}</span>`; }
 function rbBlitzSeg(lock) { return `<span class="wdseg" role="group" aria-label="Zeitlimit">${[[0, "Ohne Zeit"], [1, "⚡ Blitz 60 s"]].map(([v, l]) => `<button type="button" data-rbb="${v}" aria-pressed="${+rbBlitz() === v}" ${lock ? "disabled" : ""}>${l}</button>`).join("")}</span>`; }
 function rbPillsHtml(P) { return `<div class="rb-pair"><span class="rb-pill a">${rbFlag(P.a)}<span>${esc(rbName(P.a))}</span></span><span class="rb-vs">Grenze zu</span><span class="rb-pill b">${rbFlag(P.b)}<span>${esc(rbName(P.b))}</span></span></div>`; }
 function rbFlagFallback(box) {   // SVG fehlt (z. B. Einzeldatei) → Emoji statt kaputtem Bild
@@ -2334,7 +2334,7 @@ function n2Fold(sel, top) {
 }
 // N2: Sobald gespielt wird (ab dem 1. Tipp), schrumpfen Rätselart + Spielart (+ Generationen) zu einem Chip „Klassisch · Täglich ▾“
 let n2MOpen = false, n2MKey = "", n2MOn = false;
-const N2_PLAY = { daily: "Täglich", archiv: "Archiv", endless: "Endlos", duel: "Duell" };
+const N2_PLAY = { daily: "Heute", archiv: "Archiv", endless: "Endlos", duel: "1 gegen 1" };
 function n2Mode(st) {
   try {
     const k = [game && game.id, kind && kind.id, play].join("|"); if (k !== n2MKey) { n2MKey = k; n2MOpen = false; }
@@ -2466,7 +2466,7 @@ function render(focus = true) {
     <div class="brow"><button class="backbtn" type="button" data-act="back">← Alle Modi</button><button class="qbtn" type="button" data-act="help" title="So funktioniert's" aria-label="Hilfe">?</button></div>
     <div class="head"><h2>${esc(N(game.name))}</h2><span class="meta">${pool(game, kind, gens).length} ${esc(game.pl || game.noun)} zur Auswahl</span>${ms.length > 1 ? `<span class="hprog n3hp" style="--p:${Math.min(1, dailyDone() / GOAL)}" title="Tagesziel: 3 Tagesrätsel"><i aria-hidden="true"></i><b>${n3Cnt(dailyDone())}</b></span>` : ""}</div>
     ${ms.length > 1 && play !== "race" ? `<div class="kinds" role="group" aria-label="Rätselart">${ms.map(m => `<button class="kind" type="button" data-kind="${m.id}" aria-pressed="${m === kind}" ${play === "duel" && duel ? "disabled" : ""}><span class="oct" style="--oc:${m.oc || "#94a3b8"}" aria-hidden="true"><b>${m.ico}</b></span>${esc(N(m.label))}${solved(game, m) ? '<span class="ok">✓ heute</span>' : ""}</button>`).join("")}</div>` : ""}
-    <div class="row"><div class="seg" role="group" aria-label="Spielart" ${play === "race" ? "hidden" : ""}>${[["daily", "Täglich"], ["archiv", "Archiv"], ["endless", "Endlos"], ["duel", "Duell"]].map(([p, l]) => `<button type="button" data-play="${p}" aria-pressed="${play === p}">${l}</button>`).join("")}</div></div>
+    <div class="row"><div class="seg" role="group" aria-label="Spielart" ${play === "race" ? "hidden" : ""}>${[["daily", "Heute"], ["endless", "Endlos"], ["archiv", "Archiv"], ["duel", "1 gegen 1"]].map(([p, l]) => `<button type="button" data-play="${p}" aria-pressed="${play === p}">${l}</button>`).join("")}</div></div>
     ${game.gens ? gensHtml() : ""}
     ${play === "duel" ? duelHtml() : ""}
     ${play === "archiv" ? archHtml() : ""}
@@ -3613,7 +3613,7 @@ const DU = { cur: null, started: false, go: 0, t0: 0, last: "", mine: null, give
 const duName = id => { const A = DU_REG[id]; return A ? (typeof A.name === "function" ? A.name() : A.name) : id; };
 const duModeName = (id, m) => { const A = DU_REG[id]; const x = A && A.modes().find(y => y[0] === m); return x ? x[1] : m; };
 const duNum = x => { x = x && typeof x === "object" ? x : {}; const c = (v, a, b) => Math.max(a, Math.min(b, Number.isFinite(+v) ? +v : 0)); const o = { n: c(x.n, 0, 99) | 0, w: x.w === true, pts: Math.round(c(x.pts, 0, 100000)), ms: Math.round(c(x.ms, 0, 864e5)), done: x.done === true }; if (x.f === 1) o.f = 1; return o; };
-function duBtn(g, m, label) { if (!DU_REG[g] || OFF.has(g) || (LV.du && DU.cur)) return ""; return `<button type="button" class="btn du-inv" data-du="invite" data-g="${esc(g)}" data-m="${esc(m)}" title="Gleiches Rätsel live gegen einen Freund"><span aria-hidden="true">⚔ </span>${esc(label || "1 vs 1")}</button>`; }
+function duBtn(g, m, label) { if (!DU_REG[g] || OFF.has(g) || (LV.du && DU.cur)) return ""; return `<button type="button" class="btn du-inv" data-du="invite" data-g="${esc(g)}" data-m="${esc(m)}" title="Gleiches Rätsel live gegen einen Freund"><span aria-hidden="true">⚔ </span>${esc(label || "1 gegen 1")}</button>`; }
 function duSan(d) {
   if (!d || typeof d !== "object") return null; if (d.closed) return { closed: true };
   const A = DU_REG[d.g]; if (!A || A.hostStart || typeof d.seed !== "string" || !/^[A-Z0-9]{6,12}$/.test(d.seed) || typeof d.m !== "string" || d.m.length > 24) return null;
