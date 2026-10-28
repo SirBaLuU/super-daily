@@ -35,7 +35,7 @@ const tq = T => (L() === "de" ? T.de : T.en);
 function load() {
   if (AB.d) return Promise.resolve(AB.d);
   if (window.__ABT) { AB.d = window.__ABT; prep(); return Promise.resolve(AB.d); }
-  return fetch("data/abtaucher.json").then(r => { if (!r.ok) throw new Error("http " + r.status); return r.json(); }).then(d => { AB.d = d; prep(); return d; });
+  return fetch("data/abtaucher.json?v=" + (window.__I18NV || 1)).then(r => { if (!r.ok) throw new Error("http " + r.status); return r.json(); }).then(d => { AB.d = d; prep(); return d; });
 }
 function prep() {
   const D = AB.d; AB.byId = new Map(D.tasks.map(t => [t.id, t])); AB.cats = {}; AB.all = {};

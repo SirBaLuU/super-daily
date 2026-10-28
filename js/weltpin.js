@@ -14,7 +14,7 @@ const WP_FREE = 2, WP_COST = 10;    // 2 Hinweise gratis, jeder weitere −10 % 
 const WP_MAX = 5000, WP_K = 1492.7;
 const WP_X0 = -1800, WP_X1 = 1800, WP_Y0 = -840, WP_Y1 = 600;   // Kartenausschnitt (84° N bis 60° S), 1 Einheit = 0,1 Grad
 const WP_DIF = ["", "Leicht", "Mittel", "Schwer"];
-function wpLoad() { if (WP.d) return Promise.resolve(WP.d); if (window.__WELT) return Promise.resolve(WP.d = window.__WELT); return fetch("data/weltpin.json").then(r => r.json()).then(d => (WP.d = d)).catch(() => null); }
+function wpLoad() { if (WP.d) return Promise.resolve(WP.d); if (window.__WELT) return Promise.resolve(WP.d = window.__WELT); return fetch("data/weltpin.json?v=" + (window.__I18NV || 1)).then(r => r.json()).then(d => (WP.d = d)).catch(() => null); }
 const wpArch = date => { const A = WPS().arch || (WPS().arch = {}); return A[date] || (A[date] = { s: [], k: [], h: [], done: false }); };
 const wpEnd = () => WPS().end || (WPS().end = { n: 0, sum: 0, best: 0, run: 0 });
 function wpState() {
