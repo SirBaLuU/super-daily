@@ -46,7 +46,7 @@ ${mi}`).replace("#include <begin_vertex>",`vec2 wp = cpos.xz + mod(ofs.xy - cpos
 .wh .lvl small{font:600 12px Figtree,sans-serif;opacity:.85;text-shadow:0 1px 3px #000}
 .wh .lvl .up{display:none;margin-left:4px;font:700 11px 'Chakra Petch',sans-serif;background:var(--a);color:#1a1206;border-radius:6px;padding:1px 6px}.wh .lvl .up.on{display:inline-block}
 .wh .clock{position:absolute;right:14px;top:12px;text-align:right;font:700 15px 'Chakra Petch',sans-serif;text-shadow:0 1px 4px #000}
-.wh .clock small{display:block;font:600 12px Figtree,sans-serif;opacity:.85}.wh .clock .goal{max-width:270px;margin:6px 0 0 auto;color:#ffe2a0;font-size:12px;line-height:1.3;opacity:.95}.wh .clock .cold{color:#8fd4ff}.wh .clock .hot{color:#ff9a6a}.wh .clock .inj{color:#ff8a80;font-weight:700}
+.wh .clock small{display:block;font:600 12px Figtree,sans-serif;opacity:.85}.wh .clock .goal{max-width:270px;width:fit-content;margin:6px 0 0 auto;color:#ffe2a0;font-size:12px;line-height:1.3;background:rgb(20 16 8 / .62);padding:5px 9px;border-radius:9px;text-shadow:none}.wh .clock .cold{color:#8fd4ff}.wh .clock .hot{color:#ff9a6a}.wh .clock .inj{color:#ff8a80;font-weight:700}
 .wh .stats{position:absolute;left:14px;bottom:14px;display:flex;flex-direction:column;gap:5px}
 .wh .st{display:flex;align-items:center;gap:7px;font:700 12px 'Chakra Petch',sans-serif;text-shadow:0 1px 3px #000}
 .wh .st i{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;background:var(--p);box-shadow:inset 0 0 0 1.5px var(--c)}
