@@ -6,6 +6,7 @@ window.GduellMod = function (api) {
 const { $, esc, save, render, shareOut, canShareOut, award, showCongrats, w2Win, scoreCardHtml, suggestHtml, hash, rng, shufR, SFX, SITE_URL, GDS, gdDay, endRec, endStatHtml, I18N } = api;
 const ROUNDS = 10, MIN_RATIO = 1.12;   // keine Fast-Gleichstände
 const DIM = { width: "Breite", height: "Höhe", diameter: "Durchmesser" };
+const BALL = [[/Golf/, "⛳"], [/Tischtennis/, "🏓"], [/Tennis/, "🎾"], [/Basket/, "🏀"], [/Baseball/, "⚾"], [/Volley/, "🏐"], [/Rugby|American/, "🏈"], [/Billard/, "🎱"], [/Bowling/, "🎳"], [/Kricket|Cricket/, "🏏"]];
 const ICO = { sport: "🏟️", alltag: "🧰", ball: "⚽", gebaeude: "🏛️", karte: "💳", muenze: "🪙", fahrzeug: "🚗", kunst: "🖼️" };
 const GD = { d: null, by: null, mode: "daily", ex: null, help: false, rev: false };
 
@@ -58,7 +59,7 @@ function finish(S) {
 const seg = () => `<div class="gd-seg" role="group" aria-label="Spielart">${[["daily", "Heute"], ["endless", "Endlos"]].map(([k, l]) => `<button type="button" data-gdm="${k}" aria-pressed="${GD.mode === k}">${l}</button>`).join("")}</div>`;
 function card(id, show, cls) {
   const x = GD.by.get(id);
-  return `<div class="gd-card ${cls}"><span class="gd-ico" aria-hidden="true">${ICO[x.cat] || "📏"}</span><b class="gd-nm" data-noi18n>${esc(nm(id))}</b>
+  return `<div class="gd-card ${cls}"><span class="gd-ico" aria-hidden="true">${(x.cat === "ball" && BALL.find(([r]) => r.test(x.de)) || [0, ICO[x.cat] || "📏"])[1]}</span><b class="gd-nm" data-noi18n>${esc(nm(id))}</b>
     <span class="gd-dim">${DIM[x.dim] || ""}</span><span class="gd-val" data-noi18n>${show ? esc(len(x.mm)) : "?"}</span></div>`;
 }
 function playHtml(S) {
@@ -66,7 +67,7 @@ function playHtml(S) {
   const dots = GD.mode === "daily" ? `<div class="gd-dots" aria-label="Fortschritt">${Array.from({ length: ROUNDS }, (_, k) => `<i class="${k < S.a.length ? (S.a[k] ? "ok" : "bad") : k === i ? "cur" : ""}">${k < S.a.length ? (S.a[k] ? "✓" : "✗") : ""}</i>`).join("")}</div>`
     : `<p class="gd-streak">Serie: <b>${pts(S)}</b></p>`;
   const q = GD.rev ? `<p class="gd-res ${r ? "ok" : "bad"}" aria-live="polite">${r ? "✓ Richtig!" : "✗ Leider falsch."}</p><button class="btn primary gd-next" type="button" data-gd="next" autofocus>${S.done ? "Zum Ergebnis" : "Weiter"}</button>`
-    : `<p class="gd-q">Ist das rechte Ding größer oder kleiner?</p><div class="gd-btns"><button class="btn gd-up" type="button" data-gd="up"><span aria-hidden="true">↑</span> Größer</button><button class="btn gd-dn" type="button" data-gd="down"><span aria-hidden="true">↓</span> Kleiner</button></div>`;
+    : `<p class="gd-q">Ist das Ding mit „?“ größer oder kleiner?</p><div class="gd-btns"><button class="btn gd-up" type="button" data-gd="up"><span aria-hidden="true">↑</span> Größer</button><button class="btn gd-dn" type="button" data-gd="down"><span aria-hidden="true">↓</span> Kleiner</button></div>`;
   return `${dots}<div class="gd-vs">${card(A, true, "a")}<span class="gd-x" aria-hidden="true">vs</span>${card(B, GD.rev, "b" + (GD.rev ? (r ? " ok" : " bad") : ""))}</div>${q}`;
 }
 function endHtml(S) {
@@ -78,7 +79,7 @@ function endHtml(S) {
     ${daily ? scoreCardHtml(GDS().days, "Neues Duell in") : endStatHtml("gduell", "pts")}${daily ? suggestHtml(3, "gduell", "Als Nächstes", true) : ""}`;
 }
 function helpHtml() {
-  return `<div class="gd-help"><p><b>So geht's:</b> Links steht ein Ding mit seiner Größe, rechts ein zweites mit verdeckter Größe. Tippe, ob das rechte größer oder kleiner ist.</p>
+  return `<div class="gd-help"><p><b>So geht's:</b> Ein Ding zeigt seine Größe, beim zweiten ist sie verdeckt („?“). Tippe, ob das zweite größer oder kleiner ist.</p>
   <p>Verglichen wird das angegebene Maß (Höhe, Breite oder Durchmesser). Jeden Tag gibt es 10 Duelle, für alle gleich. Im Endlos-Modus geht es weiter, bis du dich irrst.</p>
   <p class="gd-src"><b>Quellen:</b> dieselben geprüften Maße wie bei Size It Up – Quelle je Objekt in den Size-It-Up-Daten.</p></div>`;
 }
