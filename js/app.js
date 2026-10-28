@@ -168,7 +168,7 @@ const TYPE_C = { Normal: "#9fa19f", Feuer: "#e62829", Wasser: "#2980ef", Pflanze
    Fehler/fehlend/kaputt = nichts gesperrt). OFF_BUILTIN ist die eingebaute Ersatzliste (gilt immer, auch offline).
    Gesperrte Spiele verschwinden aus allen Listen; Links darauf zeigen eine neutrale Seite. Spielstände bleiben erhalten. */
 const OFF_BUILTIN = [];
-const OFF_ALIAS = { quintix: "wordle", wort: "wordle", sizeitup: "size", "size-it-up": "size", sizeit: "size", reborder: "reb", "welt-pin": "weltpin", wp: "weltpin", geo: "weltpin", abt: "abtaucher", tiefe: "abtaucher", tiefenspiel: "abtaucher", "tiefen-spiel": "abtaucher", taucher: "abtaucher", kreuz: "ttt", "kicker-kreuz": "ttt", kickerkreuz: "ttt", kicker: "football", "kicker-dle": "football", tagesquiz: "quiz", "quiz-arena": "quiz", "turbo-ball": "turbo", turboball: "turbo", urzeit: "wild", "urzeit-insel": "wild", "live-raum": "live", "car-dle": "boostle", cardle: "boostle", "rl-dle": "boostle", rldle: "boostle", "rocket-league": "boostle", "boostle-pro": "boostlepro", rlcs: "boostlepro", flagge: "flaggix", flaggen: "flaggix", flags: "flaggix" };
+const OFF_ALIAS = { quintix: "wordle", wort: "wordle", sizeitup: "size", "size-it-up": "size", sizeit: "size", reborder: "reb", "welt-pin": "weltpin", wp: "weltpin", geo: "weltpin", abt: "abtaucher", tiefe: "abtaucher", tiefenspiel: "abtaucher", "tiefen-spiel": "abtaucher", taucher: "abtaucher", kreuz: "ttt", "kicker-kreuz": "ttt", kickerkreuz: "ttt", kicker: "football", "kicker-dle": "football", tagesquiz: "quiz", "quiz-arena": "quiz", "turbo-ball": "turbo", turboball: "turbo", urzeit: "wild", "urzeit-insel": "wild", "live-raum": "live", "car-dle": "boostle", cardle: "boostle", "rl-dle": "boostle", rldle: "boostle", "rocket-league": "boostle", "boostle-pro": "boostlepro", rlcs: "boostlepro", flagge: "flaggix", flaggen: "flaggix", flags: "flaggix", krone: "kronix", kronen: "kronix" };
 const offId = s => { s = String(s == null ? "" : s).toLowerCase().trim(); return OFF_ALIAS[s] || s; };
 const OFF = new Set(); let OFF_NOTE = "", offWhich = "", offBooted = false;
 function offApply(list) {
@@ -199,7 +199,7 @@ const offKnown = id => { id = offId(id); return GAMES.some(g => g.id === id) || 
 function offCurId() {
   if (view === "off") return offWhich || "x";
   if (!OFF.size) return "";
-  const id = (view === "play" || (view === "landing" && !hubHome)) ? game && game.id : ({ wordle: "wordle", size: "size", reb: "reb", weltpin: "weltpin", abtaucher: "abtaucher", flaggix: "flaggix", quiz: "quiz", ttt: "ttt", arena: "arena", live: "live" }[view] || "");
+  const id = (view === "play" || (view === "landing" && !hubHome)) ? game && game.id : ({ wordle: "wordle", size: "size", reb: "reb", weltpin: "weltpin", abtaucher: "abtaucher", flaggix: "flaggix", kronix: "kronix", quiz: "quiz", ttt: "ttt", arena: "arena", live: "live" }[view] || "");
   return id && OFF.has(id) ? id : "";
 }
 function offShow(id) { offWhich = offId(id); view = "off"; hubHome = false; endless = null; duel = null; try { window.scrollTo({ top: 0 }); } catch (e) {} render(false); return true; }
@@ -938,7 +938,7 @@ function P() {
   return p;
 }
 const quizDoneToday = () => { try { const d = QS().matches["T" + today.replace(/-/g, "")]; return !!(d && !nextAct(d)); } catch (e) { return false; } };
-const dailyDone = () => GAMES.reduce((a, g) => a + (OFF.has(g.id) ? 0 : modesOf(g).filter(m => solved(g, m)).length), 0) + (quizDoneToday() ? 1 : 0) + (() => { try { return WD_LANGS.filter(([l]) => wdDay(l).won).length + (store.size && store.size.days[today] && store.size.days[today].done ? 1 : 0) + (store.reb && store.reb.days[today] && store.reb.days[today].done ? 1 : 0) + (wpDone() ? 1 : 0) + (abtDone() ? 1 : 0) + (fxDone() ? 1 : 0); } catch (e) { return 0; } })();
+const dailyDone = () => GAMES.reduce((a, g) => a + (OFF.has(g.id) ? 0 : modesOf(g).filter(m => solved(g, m)).length), 0) + (quizDoneToday() ? 1 : 0) + (() => { try { return WD_LANGS.filter(([l]) => wdDay(l).won).length + (store.size && store.size.days[today] && store.size.days[today].done ? 1 : 0) + (store.reb && store.reb.days[today] && store.reb.days[today].done ? 1 : 0) + (wpDone() ? 1 : 0) + (abtDone() ? 1 : 0) + (fxDone() ? 1 : 0) + (kxDone() ? 1 : 0); } catch (e) { return 0; } })();
 function checkAch(silent) {
   const p = store.prog, got = [];
   ACH.forEach(([id, name, desc, test]) => { if (!p.ach[id]) { let ok = false; try { ok = test(p); } catch (e) {} if (ok) { p.ach[id] = today; if (!silent) { p.xp += 50; got.push([name, desc]); } } } });
@@ -1288,6 +1288,7 @@ function suggestions(n = 3, skip, noCur) {
   if (!wpDone()) add({ k: "weltpin", attr: 'data-wp="home"', ico: "📍", gc: "#d61f69", t: "Weltpin", s: "Orte auf der Weltkarte" });
   if (!abtDone()) add({ k: "abtaucher", attr: 'data-abt="home"', ico: "🤿", gc: "#0e7490", t: "Abtaucher", s: "Seltene Antworten finden" });
   if (!fxDone()) add({ k: "flaggix", attr: 'data-fx="home"', ico: "⚑", gc: "#2563eb", t: "Flaggix", s: "Flagge erraten" });
+  if (!kxDone()) add({ k: "kronix", attr: 'data-kx="home"', ico: "♛", gc: "#b45309", t: "Kronix", s: "Logik-Rätsel" });
   order.filter(g => open(g).length && !(noCur && g === game)).forEach(g => add(item(g, open(g)[0])));
   return out;
 }
@@ -2211,6 +2212,21 @@ function renderAbtaucher() {
   const box = $("#abtaucher"); box.innerHTML = `<div class="wdhead"><h2>Abtaucher</h2><p>Lädt …</p></div>`;
   abtCode().then(() => { if (view === "abtaucher") render(false); }).catch(() => { if (view === "abtaucher") box.innerHTML = `<div class="wdhead"><h2>Abtaucher</h2><p>Die Spieldaten konnten nicht geladen werden.</p></div><button class="btn" type="button" data-abt="home">Erneut versuchen</button>`; });
 }
+/* ===== Paket 6b: Kronix (Spiel-Code nachgeladen aus js/kronix.js) ===== */
+const KXS = () => store.kx || (store.kx = { days: {} });
+const kxDay = (date = today) => KXS().days[date] || (KXS().days[date] = { b: null, done: false, hints: 0, t0: 0, t: 0 });
+function kxDone() { try { return !!(store.kx && store.kx.days[today] && store.kx.days[today].done); } catch (e) { return false; } }
+let kxCodeP = null, KXM = null, kxHomeFlag = 0;
+const kxApi = () => ({ $, esc, save, render, shareOut, canShareOut, award, showCongrats, w2Win, scoreCardHtml, suggestHtml, hash, rng, SFX, SITE_URL, KXS, kxDay, endRec, endStatHtml,
+  view: () => view, today: () => today, day: () => day, homeFlag: c => { const f = kxHomeFlag; if (c) kxHomeFlag = 0; return f; } });
+function kxCode() { if (KXM) return Promise.resolve(KXM); return kxCodeP || (kxCodeP = loadScriptOnce("js/kronix.js").then(() => { if (typeof window.KronixMod !== "function") throw new Error("kronix"); const M = window.KronixMod(kxApi()); return M.load().then(() => (KXM = M)); }).catch(e => { kxCodeP = null; const s = document.querySelector('script[data-src="js/kronix.js"]'); if (s) s.remove(); throw e; })); }
+function renderKronix() {
+  if (KXM && KXM.ready()) return KXM.render();
+  const box = $("#kronix"); box.innerHTML = `<div class="wdhead"><h2>Kronix</h2><p>Lädt …</p></div>`;
+  kxCode().then(() => { if (view === "kronix") render(false); }).catch(() => { if (view === "kronix") box.innerHTML = `<div class="wdhead"><h2>Kronix</h2><p>Das Spiel konnte nicht geladen werden.</p></div><button class="btn" type="button" data-kx="home">Erneut versuchen</button>`; });
+}
+document.addEventListener("click", e => { const t = e.target.closest('[data-kx="home"]'); if (!t) return; view = "kronix"; kxHomeFlag = 1; try { window.scrollTo({ top: 0 }); } catch (x) {} render(false); });
+window.__kx = { mod: () => KXM, code: kxCode };
 /* ===== Paket 6: Flaggix (Spiel-Code nachgeladen aus js/flaggix.js) ===== */
 const FXS = () => store.fx || (store.fx = { days: {}, endLast: [] });
 const fxDay = (date = today) => FXS().days[date] || (FXS().days[date] = { g: [], done: false, won: false, hint: false });
@@ -2231,24 +2247,24 @@ document.addEventListener("click", e => { const t = e.target.closest('[data-abt=
 /* ---------- Rendering ---------- */
 const board = $("#board"), nav = $("#games");
 function navInner() {
-  const H = DATA.hub || {}, inGame = !["quiz", "live", "arena", "wordle", "size", "reb", "weltpin", "abtaucher", "flaggix", "ttt", "landing"].includes(view);
+  const H = DATA.hub || {}, inGame = !["quiz", "live", "arena", "wordle", "size", "reb", "weltpin", "abtaucher", "flaggix", "kronix", "ttt", "landing"].includes(view);
   const badge = (n, m) => n === m ? '<span class="gp nv-c done" aria-label="heute gelöst">✓</span>' : n ? `<span class="gp nv-c pr" style="--p:${(n / m).toFixed(3)}" role="img" aria-label="${n} von ${m} Modi gelöst"></span>` : "";
   const SQ = id => `<img class="sq" src="img/covers/${id}-sq.webp" alt="" width="42" height="42" loading="lazy" decoding="async">`;
   const tile = g => { const ms = modesOf(g), n = ms.filter(m => solved(g, m)).length;
     return `<button class="chip gt ${g.id === "pokemon" ? "sprite" : g.id === "r6" ? "icon" : g.id === "clashroyale" ? "card" : ""}" type="button" data-game="${g.id}" style="--gc:${g.color}" aria-current="${inGame && g === game}" title="${esc(N(g.name))} – ${n}/${ms.length} heute gelöst"><span class="gi">${H[g.id] ? `<img src="${H[g.id]}" alt="" loading="lazy">` : `<b>${esc(g.code)}</b>${g.id === "football" ? SQ("kicker") : g.bst ? SQ(g.id) : ""}`}</span><span class="nv-t"><span class="gn">${esc(N(g.name))}</span></span>${badge(n, ms.length)}</button>`; };
   const wdn = (() => { try { return WD_LANGS.filter(([l]) => wdDay(l).won).length; } catch (e) { return 0; } })();
-  const XSQ = { wordlechip: "wordle", sizechip: "size", rebchip: "reborder", wpchip: "weltpin", abtchip: "abtaucher", fxchip: "flaggix", quizchip: "quiz", livechip: "live", tttchip: "kreuz", arenachip: "arena", turbochip: "turbo", laneschip: "lanes", wildchip: "wild" };
-  const XOFF = { wordlechip: "wordle", sizechip: "size", rebchip: "reb", wpchip: "weltpin", abtchip: "abtaucher", fxchip: "flaggix", quizchip: "quiz", livechip: "live", tttchip: "ttt", arenachip: "arena", turbochip: "turbo", laneschip: "lanes", wildchip: "wild" };
+  const XSQ = { wordlechip: "wordle", sizechip: "size", rebchip: "reborder", wpchip: "weltpin", abtchip: "abtaucher", fxchip: "flaggix", kxchip: "kronix", quizchip: "quiz", livechip: "live", tttchip: "kreuz", arenachip: "arena", turbochip: "turbo", laneschip: "lanes", wildchip: "wild" };
+  const XOFF = { wordlechip: "wordle", sizechip: "size", rebchip: "reb", wpchip: "weltpin", abtchip: "abtaucher", fxchip: "flaggix", kxchip: "kronix", quizchip: "quiz", livechip: "live", tttchip: "ttt", arenachip: "arena", turbochip: "turbo", laneschip: "lanes", wildchip: "wild" };
   const xt = (cls, attr, ico, name, sub, cur, done) => OFF.has(XOFF[cls]) ? "" : `<button class="chip gt x ${cls}" type="button" ${attr} aria-current="${cur}"><span class="gi"><b>${ico}</b>${XSQ[cls] ? SQ(XSQ[cls]) : ""}</span><span class="nv-t"><span class="gn">${name}</span><small>${sub}</small></span>${done ? '<span class="gp nv-c done" aria-label="heute gelöst">✓</span>' : ""}</button>`;
   return `<div class="nv">
     <div class="nv-home"><button type="button" data-hub="home" title="Startseite mit allen Spielen">⌂ Alle Spiele</button></div>
     <section class="nv-sec nv-rate"><h4 class="nv-h">Tägliche Rate-Spiele</h4><div class="nv-grid">${GAMES.filter(g => !OFF.has(g.id)).map(tile).join("")}</div></section>
-    <section class="nv-sec"><h4 class="nv-h">Tagesspiele</h4><div class="nv-grid4">${xt("wordlechip", 'data-wd="home"', "Q", "Quintix", "Wort des Tages", view === "wordle", wdn > 0)}${xt("sizechip", 'data-sz="home"', "↕", "Size It Up", "Größen schätzen", view === "size", !!(store.size && store.size.days[today] && store.size.days[today].done))}${xt("rebchip", 'data-rb="home"', "✎", "Reborder", "Grenzen zeichnen", view === "reb", !!(store.reb && store.reb.days[today] && store.reb.days[today].done))}${xt("wpchip", 'data-wp="home"', "📍", "Weltpin", "Orte auf der Karte", view === "weltpin", wpDone())}${xt("abtchip", 'data-abt="home"', "🤿", "Abtaucher", "Seltene Antworten", view === "abtaucher", abtDone())}${xt("fxchip", 'data-fx="home"', "⚑", "Flaggix", "Flagge erraten", view === "flaggix", fxDone())}${xt("quizchip", 'data-q="home"', "?", "Quiz-Arena", "Tagesquiz &amp; Duell", view === "quiz", quizDoneToday())}</div></section>
+    <section class="nv-sec"><h4 class="nv-h">Tagesspiele</h4><div class="nv-grid4">${xt("wordlechip", 'data-wd="home"', "Q", "Quintix", "Wort des Tages", view === "wordle", wdn > 0)}${xt("sizechip", 'data-sz="home"', "↕", "Size It Up", "Größen schätzen", view === "size", !!(store.size && store.size.days[today] && store.size.days[today].done))}${xt("rebchip", 'data-rb="home"', "✎", "Reborder", "Grenzen zeichnen", view === "reb", !!(store.reb && store.reb.days[today] && store.reb.days[today].done))}${xt("wpchip", 'data-wp="home"', "📍", "Weltpin", "Orte auf der Karte", view === "weltpin", wpDone())}${xt("abtchip", 'data-abt="home"', "🤿", "Abtaucher", "Seltene Antworten", view === "abtaucher", abtDone())}${xt("fxchip", 'data-fx="home"', "⚑", "Flaggix", "Flagge erraten", view === "flaggix", fxDone())}${xt("kxchip", 'data-kx="home"', "♛", "Kronix", "Logik-Rätsel", view === "kronix", kxDone())}${xt("quizchip", 'data-q="home"', "?", "Quiz-Arena", "Tagesquiz &amp; Duell", view === "quiz", quizDoneToday())}</div></section>
     <section class="nv-sec nv-more"><h4 class="nv-h">Mit Freunden &amp; 3D-Spiele</h4><div class="nv-grid4">${xt("livechip", 'data-lv="home"', "⚡", "Live", "Raum mit Freunden", view === "live", false)}${xt("tttchip", 'data-tt="home"', "✕", "Kicker-Kreuz", "Fußball-Tic-Tac-Toe", view === "ttt", false)}${xt("arenachip", 'data-lv="home" data-sec="ar"', "✛", "Arena", "Shooter · 7 Modi", view === "arena", false)}${xt("turbochip", 'data-lv="home" data-sec="tb"', "◎", "Turbo-Ball", "Auto-Fußball", false, false)}${xt("laneschip", 'data-lv="home" data-sec="ln"', "♜", "Lanes", "Helden-Kampf", false, false)}${xt("wildchip", 'data-lv="home" data-sec="ur"', "⛰", "Urzeit-Insel", "Überleben & Zähmen", false, false)}</div><div class="qz-row"><button type="button" class="btn" data-sf="open"><i class="w2i" style="--i:var(--w2-multiplayer)" aria-hidden="true"></i>Freunde &amp; Party</button></div></section>
   </div>`;
 }
 // N2: In Spiel-Ansichten ist die Spiele-Leiste eingeklappt – ein Knopf „Alle Spiele ▾“ klappt sie auf (Titel, Modus und Eingabe im ersten Bildschirm)
-const N2_COL = ["play", "landing", "wordle", "size", "reb", "weltpin", "abtaucher", "flaggix", "quiz", "ttt"];
+const N2_COL = ["play", "landing", "wordle", "size", "reb", "weltpin", "abtaucher", "flaggix", "kronix", "quiz", "ttt"];
 let n2Open = false, n2Key = "";
 function n2Col() { return N2_COL.includes(view) && !(view === "landing" && hubHome); }
 function renderNav() {
@@ -2333,7 +2349,7 @@ function render(focus = true) {
   hubTrack();
   document.documentElement.classList.toggle("w1-play", view === "play"); document.documentElement.classList.toggle("w1-wd", view === "wordle");
   if (view !== "info" && W1.title) { document.title = W1.title; W1.title = ""; }
-  { const wd = $("#wordle"); if (wd) wd.hidden = view !== "wordle"; const sz = $("#sizeit"); if (sz) sz.hidden = view !== "size"; const rb = $("#reborder"); if (rb) rb.hidden = view !== "reb"; const tt = $("#ttt"); if (tt) tt.hidden = view !== "ttt"; const wpx = $("#weltpin"); if (wpx) wpx.hidden = view !== "weltpin"; const abx = $("#abtaucher"); if (abx) abx.hidden = view !== "abtaucher"; const fxx = $("#flaggix"); if (fxx) fxx.hidden = view !== "flaggix"; }
+  { const wd = $("#wordle"); if (wd) wd.hidden = view !== "wordle"; const sz = $("#sizeit"); if (sz) sz.hidden = view !== "size"; const rb = $("#reborder"); if (rb) rb.hidden = view !== "reb"; const tt = $("#ttt"); if (tt) tt.hidden = view !== "ttt"; const wpx = $("#weltpin"); if (wpx) wpx.hidden = view !== "weltpin"; const abx = $("#abtaucher"); if (abx) abx.hidden = view !== "abtaucher"; const fxx = $("#flaggix"); if (fxx) fxx.hidden = view !== "flaggix"; const kxx = $("#kronix"); if (kxx) kxx.hidden = view !== "kronix"; }
   if (view === "info") return w1RenderInfo();
   if (view === "ttt") {
     document.documentElement.dataset.theme = "football"; $("#wm").textContent = ""; $("#scene").innerHTML = ""; $("#parts").innerHTML = ""; $("#collage").innerHTML = ""; sceneFor = null; collageFor = null;
@@ -2347,6 +2363,12 @@ function render(focus = true) {
     $("#landing").hidden = true; board.hidden = true; nav.hidden = false; $("#quiz").hidden = true; $("#live").hidden = true; $("#wordle").hidden = true; renderNav();
     $("#datanote").textContent = "Abtaucher – Antwortlisten: world-countries (ODbL), GeoNames (CC BY 4.0), CLDR, PokeAPI, d3-celestial (BSD), amtliche Listen (EU, EZB, NATO, IOC); Seltenheit: FrequencyWords (CC BY-SA 4.0). Quelle je Aufgabe in der Hilfe (?).";
     { const r = renderAbtaucher(); n2Fold("#abtaucher .abt-drow", "#abtaucher .abt-world"); return r; }
+  }
+  if (view === "kronix") {   // Paket 6b Kronix
+    document.documentElement.dataset.theme = "wordle"; $("#wm").textContent = ""; ["#scene", "#parts", "#collage"].forEach(x => { const el = $(x); if (el) el.innerHTML = ""; }); sceneFor = null; collageFor = null;
+    $("#landing").hidden = true; board.hidden = true; nav.hidden = false; $("#quiz").hidden = true; $("#live").hidden = true; $("#wordle").hidden = true; renderNav();
+    $("#datanote").textContent = "Kronix – Rätsel werden jeden Tag aus dem Datum erzeugt und nur verwendet, wenn sie genau eine Lösung haben.";
+    return renderKronix();
   }
   if (view === "flaggix") {   // Paket 6 Flaggix
     document.documentElement.dataset.theme = "wordle"; $("#wm").textContent = ""; ["#scene", "#parts", "#collage"].forEach(x => { const el = $(x); if (el) el.innerHTML = ""; }); sceneFor = null; collageFor = null;
@@ -2421,6 +2443,7 @@ const HX = [
   { id: "weltpin", a: 'data-wp="home"', ico: "📍", gc: "#d61f69", n: "Weltpin", s: "Orte erraten · Pin auf der Weltkarte", cv: "weltpin", sec: "day" },
   { id: "abtaucher", a: 'data-abt="home"', ico: "🤿", gc: "#0e7490", n: "Abtaucher", s: "Seltene Antworten finden · je seltener, desto tiefer", cv: "abtaucher", sec: "day" },
   { id: "flaggix", a: 'data-fx="home"', ico: "⚑", gc: "#2563eb", n: "Flaggix", s: "Flagge erraten · jeder Fehlversuch deckt mehr auf", cv: "flaggix", sec: "day" },
+  { id: "kronix", a: 'data-kx="home"', ico: "♛", gc: "#b45309", n: "Kronix", s: "Logik-Rätsel · eine Krone je Zeile, Spalte und Feld", cv: "kronix", sec: "day" },
   { id: "quiz", a: 'data-q="home"', ico: "?", gc: "#8b7bff", n: "Quiz-Arena", s: "Tagesquiz & Duell", cv: "quiz", sec: "day" },
   { id: "live", a: 'data-lv="home"', ico: "⚡", gc: "#f59e0b", n: "Live-Raum", s: "Quiz & Rate-Rennen mit Freunden", cv: "live", sec: "fr" },
   { id: "ttt", a: 'data-tt="home"', ico: "✕", gc: "#38d27a", n: "Kicker-Kreuz", s: "Fußball-Tic-Tac-Toe · online 1 gegen 1", cv: "kreuz", sec: "fr" },
@@ -2429,7 +2452,7 @@ const HX = [
   { id: "lanes", a: 'data-lv="home" data-sec="ln"', ico: "♜", gc: "#a855f7", n: "Lanes", s: "Helden-Kampf auf drei Bahnen", cv: "lanes", sec: "3d" },
   { id: "wild", a: 'data-lv="home" data-sec="ur"', ico: "⛰", gc: "#84cc16", n: "Urzeit-Insel", s: "Überleben & Zähmen", cv: "wild", sec: "3d" },
 ];
-const hxDone = id => { try { if (id === "wordle") return WD_LANGS.filter(([l]) => wdDay(l).won).length; if (id === "size") return +!!(store.size && store.size.days[today] && store.size.days[today].done); if (id === "reb") return +!!(store.reb && store.reb.days[today] && store.reb.days[today].done); if (id === "weltpin") return +wpDone(); if (id === "abtaucher") return +abtDone(); if (id === "flaggix") return +fxDone(); if (id === "quiz") return +quizDoneToday(); } catch (e) {} return 0; };
+const hxDone = id => { try { if (id === "wordle") return WD_LANGS.filter(([l]) => wdDay(l).won).length; if (id === "size") return +!!(store.size && store.size.days[today] && store.size.days[today].done); if (id === "reb") return +!!(store.reb && store.reb.days[today] && store.reb.days[today].done); if (id === "weltpin") return +wpDone(); if (id === "abtaucher") return +abtDone(); if (id === "flaggix") return +fxDone(); if (id === "kronix") return +kxDone(); if (id === "quiz") return +quizDoneToday(); } catch (e) {} return 0; };
 const hxTot = id => id === "wordle" ? WD_LANGS.length : 1;
 const hubFeat = () => GAMES.map(g => g.id).concat(HX.filter(x => x.sec === "day").map(x => x.id)).filter(id => !OFF.has(id));   // N3: Spiel des Tages nur aus den täglichen Rätseln
 function hubFeatured(d = day) { const L = hubFeat(); if (!L.length) return ""; const n = L.length, gcd = (a, b) => b ? gcd(b, a % b) : a; let k = 7; while (n > 1 && gcd(k, n) !== 1) k++; return L[(((d * k) % n) + n) % n]; }   // deterministisch je Tag, gleiche Reihenfolge für alle
@@ -2440,7 +2463,7 @@ function hubItem(id) {
   const x = HX.find(y => y.id === id); if (!x) return null;
   return { id, n: x.n, s: x.s, gc: x.gc, ico: x.ico, cv: COV(x.cv), cvl: COV(x.cv), a: x.a, play: x.a, done: x.sec === "day" ? hxDone(id) : 0, tot: x.sec === "day" ? hxTot(id) : 0 };
 }
-function hubCurId() { if (view === "play" || (view === "landing" && !hubHome)) return game && game.id; return { wordle: "wordle", size: "size", reb: "reb", weltpin: "weltpin", abtaucher: "abtaucher", flaggix: "flaggix", quiz: "quiz", ttt: "ttt", live: "live", arena: "arena" }[view] || ""; }
+function hubCurId() { if (view === "play" || (view === "landing" && !hubHome)) return game && game.id; return { wordle: "wordle", size: "size", reb: "reb", weltpin: "weltpin", abtaucher: "abtaucher", flaggix: "flaggix", kronix: "kronix", quiz: "quiz", ttt: "ttt", live: "live", arena: "arena" }[view] || ""; }
 function hubTrack() {
   document.documentElement.classList.toggle("hub-on", view === "landing" && hubHome);
   const id = hubCurId(); if (!id || id === "arena") return; const r = Array.isArray(store.recent) ? store.recent : [];
@@ -4430,7 +4453,7 @@ const spRoom = code => "sdg-ib-" + code;
 const SP_ACT = { turbo: "spielt Turbo-Ball", arena: "spielt Arena", lanes: "spielt Lanes", room: "ist in einem Live-Raum", ttt: "spielt Kicker-Kreuz", daily: "löst Tagesrätsel", "": "online" };
 const spActText = a => SP_ACT[a] || SP_ACT[""];
 function spGame() { return window.__turbo ? "turbo" : (window.__arena || window.__arenaLobby) ? "arena" : window.__lanes ? "lanes" : ""; }
-function spAct() { const g = spGame(); return g || (LV.room && view === "ttt" ? "ttt" : LV.room ? "room" : view === "play" || view === "wordle" || view === "size" || view === "reb" || view === "weltpin" || view === "abtaucher" || view === "flaggix" ? "daily" : ""); }
+function spAct() { const g = spGame(); return g || (LV.room && view === "ttt" ? "ttt" : LV.room ? "room" : view === "play" || view === "wordle" || view === "size" || view === "reb" || view === "weltpin" || view === "abtaucher" || view === "flaggix" || view === "kronix" ? "daily" : ""); }
 function spMe(withRoom) { return { code: socialMe(), name: myLiveName(), lv: lvOf(P().xp).L, act: spAct(), room: withRoom && LV.room && LV.lobby ? roomFull(LV.room) : "" }; }
 function spState(id) { const s = SP.st[id]; return s && s.on && Date.now() - s.t < spCfg().stale ? s : { on: false }; }
 function sfAgo(t) { if (!t) return "offline"; const m = Math.round((Date.now() - t) / 60000); if (m < 2) return "zuletzt online gerade eben"; if (m < 60) return `zuletzt online vor ${m} Min.`; const h = Math.round(m / 60); if (h < 24) return `zuletzt online vor ${h} Std.`; return `zuletzt online vor ${Math.round(h / 24)} Tagen`; }
@@ -4837,7 +4860,7 @@ function w1Url() {
   const h = location.hash;
   if (view === "live" || view === "arena" || view === "off") return undefined;
   if (h && !(W1_LINK.test(h) || h === "#info")) return undefined;   // Raum-, Duell-, Freundes-Links unverändert lassen
-  const id = view === "info" ? "info" : (view === "play" || (view === "landing" && !hubHome)) && game ? game.id : ({ wordle: "quintix", size: "size", reb: "reborder", weltpin: "weltpin", abtaucher: "abtaucher", flaggix: "flaggix", quiz: "quiz", ttt: "kreuz" })[view] || "";
+  const id = view === "info" ? "info" : (view === "play" || (view === "landing" && !hubHome)) && game ? game.id : ({ wordle: "quintix", size: "size", reb: "reborder", weltpin: "weltpin", abtaucher: "abtaucher", flaggix: "flaggix", kronix: "kronix", quiz: "quiz", ttt: "kreuz" })[view] || "";
   const want = id === "info" ? "#info" : id ? "#spiel=" + id : "";
   if (want === h || (!want && !h)) return undefined;
   return location.pathname + location.search + want;
@@ -4931,7 +4954,7 @@ function w2Load(g) {
   if (!g.w2p) { w2s().lazyReq++; g.w2p = fetch(g.w2url).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(a => { if (!g.w2ok()) g.w2set(a); return true; }).catch(() => { g.w2p = null; return false; }); }
   return g.w2p;
 }
-Object.assign(CONG, { flaggix: { w: ["Flaggen-Profi!", "Volltreffer!", "Weltklasse!"], a: "#2563eb", b: "#0b1630", m: "tiles" }, boostle: { w: ["Tor!", "Was für ein Save!", "Aerial-Treffer!"], a: "#ff8a3d", b: "#0b1020", m: "bolt" }, boostlepro: { w: ["Weltklasse!", "MVP!", "Champion!"], a: "#4ea4ff", b: "#0b1020", m: "crown" } });   // R67a Boostle
+Object.assign(CONG, { kronix: { w: ["Logik-Ass!", "Krönung!", "Meisterhaft!"], a: "#b45309", b: "#1c1206", m: "tiles" }, flaggix: { w: ["Flaggen-Profi!", "Volltreffer!", "Weltklasse!"], a: "#2563eb", b: "#0b1630", m: "tiles" }, boostle: { w: ["Tor!", "Was für ein Save!", "Aerial-Treffer!"], a: "#ff8a3d", b: "#0b1020", m: "bolt" }, boostlepro: { w: ["Weltklasse!", "MVP!", "Champion!"], a: "#4ea4ff", b: "#0b1020", m: "crown" } });   // R67a Boostle
 function w2LoadAll() { return Promise.all(GAMES.filter(g => g.w2ok && !g.w2ok()).map(w2Load)); }
 function w2Wait() {
   ["#landing", "#quiz", "#live"].forEach(x => { const el = $(x); if (el) el.hidden = true; }); board.hidden = false; nav.hidden = false;
