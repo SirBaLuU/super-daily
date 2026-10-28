@@ -186,7 +186,7 @@ function head(S) {
 }
 function fastBtn(S) {
   const on = fastOn(S), lock = AB.mode === "duel" || (S && (S.s.length > 0 || S.done));
-  return `<button type="button" class="abt-fast" data-abt="fast" aria-pressed="${on}" ${lock ? "disabled" : ""} title="Zeitmodus: ${FAST_S} Sekunden je Aufgabe"><span aria-hidden="true">⏱</span> Zeitmodus ${on ? "an" : "aus"}</button>`;
+  return `<button type="button" class="fx2t-sw abt-fast" role="switch" aria-checked="${on}" data-abt="fast" ${lock ? "disabled" : ""} title="Zeitmodus: ${FAST_S} Sekunden je Aufgabe"><span class="fx2t-k" aria-hidden="true"></span>⏱<span class="fx2t-l"> Zeit-Modus</span></button>`;
 }
 function tierHtml(t) { return `<span class="abt-tier t${t}"><span class="abt-dots" aria-hidden="true">${[1, 2, 3, 4, 5].map(i => `<i class="${i <= t ? "on" : ""}"></i>`).join("")}</span><small>${TIER[t]}</small></span>`; }
 function hud(S, d, tot, i) {
