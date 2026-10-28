@@ -2540,7 +2540,7 @@ function homeHtml() {
         <h2 class="hb-ti">${esc(f.n)}</h2>
         <p class="hb-de">${esc(f.s)}</p>
         <div class="hb-cta"><button type="button" class="hb-play" data-hubplay="${f.id}" ${f.play}><span aria-hidden="true">▶</span> ${fdone ? "Nochmal spielen" : f.done ? "Weiterspielen" : "Heute spielen"}</button>${f.g ? `<button type="button" class="hb-alt" ${f.a}>Alle Modi</button>` : ""}</div>
-        ${f.tot ? `<span class="hb-st">${fdone ? "✓ Heute gelöst" : n3Dots(f.done, f.tot)}</span>` : ""}
+        ${f.tot ? `<span class="hb-st">${fdone ? "✓ Heute gelöst" : `${n3Dots(f.done, f.tot)} <span class="hb-stl">${f.done} von ${f.tot} Rätseln heute</span>`}</span>` : ""}
       </div>
     </section>
     <section class="hb-today" aria-label="Heute">
@@ -2725,7 +2725,7 @@ function gridHtml(st) {
     return `<tr${ri === 0 && fr != null ? ` class="w2new" style="--e:${fr}ms"` : ""}><td class="name" title="${esc(c.name)}">${ptile(c)}</td>${game.cols.map((col, ci) => {
       const r0 = compare(col, c[col.k], st.target[col.k], st.target), r = DIFF() === "hard" && r0 === "part" ? "bad" : r0, a = arrow(col, c[col.k], st.target[col.k]);
       const lng = String(show(col, c[col.k], c)).split(/[\s,]+/).some(w => w.length > 11);
-      return `<td class="${r} ${a ? (a === "▲" ? "up" : "down") : ""} ${lng ? "long" : ""}${Array.isArray(c[col.k]) && c[col.k].length > 2 ? " many" : ""}" style="--i:${ci}"${r === "part" && TIP[col.t] ? ` title="${esc(TIP[col.t])}"` : ""}><span class="w1s" aria-hidden="true">${W1SYM[r] || ""}${a ? (a === "▲" ? "↑" : "↓") : ""}</span><span class="sr">${esc(col.l)}: ${W1SR[r] || ""} – </span><span class="w2v"${lng || (Array.isArray(c[col.k]) && c[col.k].length > 2) ? ` title="${esc(show(col, c[col.k], c))}"` : ""}>${cellHtml(col, c[col.k], c)}</span>${a ? `<span class="sr">${a === "▲" ? "gesuchter Wert höher" : "gesuchter Wert niedriger"}</span>` : ""}</td>`;
+      return `<td class="${r} ${a ? (a === "▲" ? "up" : "down") : ""} ${lng ? "long" : ""}${Array.isArray(c[col.k]) && c[col.k].length > 2 ? " many" : ""}" style="--i:${ci}"${r === "part" && TIP[col.t] ? ` title="${esc(TIP[col.t])}"` : ""}><span class="w1s" aria-hidden="true">${W1SYM[r] || ""}${a ? (a === "▲" ? "↑" : "↓") : ""}</span><small class="cl" aria-hidden="true">${esc(col.l)}</small><span class="sr">${esc(col.l)}: ${W1SR[r] || ""} – </span><span class="w2v"${lng || (Array.isArray(c[col.k]) && c[col.k].length > 2) ? ` title="${esc(show(col, c[col.k], c))}"` : ""}>${cellHtml(col, c[col.k], c)}</span>${a ? `<span class="sr">${a === "▲" ? "gesuchter Wert höher" : "gesuchter Wert niedriger"}</span>` : ""}</td>`;
     }).join("")}</tr>`;
   }).join("");
   const n2a = game.cols.length, n2c = n2a <= 4 ? n2a + 1 : Math.ceil(n2a / 2);   // N2: Spalten je Zeile am Handy (ab 5 Merkmalen: Name als eigene Zeile, Merkmale in 2 Zeilen)
