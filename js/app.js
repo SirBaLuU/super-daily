@@ -2464,7 +2464,7 @@ function render(focus = true) {
   const gens = (play === "duel" && duel) ? duel.gens : gensFor(game);
   board.innerHTML = `
     <div class="brow"><button class="backbtn" type="button" data-act="back">← Alle Modi</button><button class="qbtn" type="button" data-act="help" title="So funktioniert's" aria-label="Hilfe">?</button></div>
-    <div class="head"><h2>${esc(N(game.name))}</h2><span class="meta">${pool(game, kind, gens).length} ${esc(game.pl || game.noun)} zur Auswahl</span>${ms.length > 1 ? `<span class="hprog n3hp" style="--p:${Math.min(1, dailyDone() / GOAL)}" title="Tagesziel: 3 Tagesrätsel"><i aria-hidden="true"></i><b>${n3Cnt(dailyDone())}</b></span>` : ""}</div>
+    <div class="head"><h2>${esc(N(game.name))}</h2><span class="meta">${pool(game, kind, gens).length} ${esc(game.pl || game.noun)} zur Auswahl</span>${ms.length > 1 ? `<span class="hprog n3hp" style="--p:${Math.min(1, dailyDone() / GOAL)}" title="Tagesziel: 3 verschiedene Tagesspiele lösen"><i aria-hidden="true"></i><b>${n3Cnt(dailyDone())}</b></span>` : ""}</div>
     ${ms.length > 1 && play !== "race" ? `<div class="kinds" role="group" aria-label="Rätselart">${ms.map(m => `<button class="kind" type="button" data-kind="${m.id}" aria-pressed="${m === kind}" ${play === "duel" && duel ? "disabled" : ""}><span class="oct" style="--oc:${m.oc || "#94a3b8"}" aria-hidden="true"><b>${m.ico}</b></span>${esc(N(m.label))}${solved(game, m) ? '<span class="ok">✓ heute</span>' : ""}</button>`).join("")}</div>` : ""}
     <div class="row"><div class="seg" role="group" aria-label="Spielart" ${play === "race" ? "hidden" : ""}>${[["daily", "Heute"], ["endless", "Endlos"], ["archiv", "Archiv"], ["duel", "1 gegen 1"]].map(([p, l]) => `<button type="button" data-play="${p}" aria-pressed="${play === p}">${l}</button>`).join("")}</div></div>
     ${game.gens ? gensHtml() : ""}
@@ -5249,16 +5249,16 @@ function n3Msg(p, n, risk, fb) {
   if (risk) return `Heute lösen → ${n + 1} Tage Serie 🔥`;
   return fb || "";
 }
-function n3Cnt(dn) { return `${Math.min(dn, GOAL)} von ${GOAL} heute`; }
+function n3Cnt(dn) { return `${Math.min(dn, GOAL)} von ${GOAL} Spielen heute`; }
 function n3Dots(n, m) { m = Math.max(1, Math.min(8, m)); n = Math.max(0, Math.min(m, n)); return `<span class="n3dots" role="img" aria-label="${n} von ${m} gelöst">${"●".repeat(n)}${"○".repeat(m - n)}</span>`; }
 /* Kopfzeile: derselbe Zähler wie auf der Startseite und im Spiel */
 function n3Hud() {
   try {
     const side = document.querySelector("header.top .side"); if (!side) return;
     let c = document.getElementById("n3cnt");
-    if (!c) { side.insertAdjacentHTML("afterbegin", '<span class="n3cnt" id="n3cnt" role="status" title="Tagesziel: 3 Tagesrätsel"></span>'); c = document.getElementById("n3cnt"); const s = document.querySelector(".hstreak"); if (s && s.parentElement === side) s.after(c); }
+    if (!c) { side.insertAdjacentHTML("afterbegin", '<span class="n3cnt" id="n3cnt" role="status" title="Tagesziel: 3 verschiedene Tagesspiele lösen"></span>'); c = document.getElementById("n3cnt"); const s = document.querySelector(".hstreak"); if (s && s.parentElement === side) s.after(c); }
     const dn = dailyDone(), x = Math.min(dn, GOAL), k = x + ":" + (dn >= GOAL);
-    if (c.dataset.k !== k) { c.dataset.k = k; c.classList.toggle("done", dn >= GOAL); c.innerHTML = `${dn >= GOAL ? '<span class="n3ck" aria-hidden="true">✓</span>' : ""}<span>${x} von ${GOAL} heute</span>`; }
+    if (c.dataset.k !== k) { c.dataset.k = k; c.classList.toggle("done", dn >= GOAL); c.innerHTML = `${dn >= GOAL ? '<span class="n3ck" aria-hidden="true">✓</span>' : ""}<span>${x} von ${GOAL} Spielen heute</span>`; }
     document.documentElement.classList.toggle("n3-nos", n3NoStreak());
     n3Menu();
   } catch (e) {}
