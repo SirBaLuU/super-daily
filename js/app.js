@@ -2531,6 +2531,12 @@ const hubCard = (it, cls = "") => `<button class="hbc ${cls}" type="button" ${it
   <span class="hbc-art" aria-hidden="true"><b class="hbc-g">${esc(it.ico)}</b>${it.img ? `<img class="hbc-fb" src="${it.img}" alt="" width="96" height="96" loading="lazy" decoding="async">` : ""}${it.cv ? `<img class="hbc-im" src="${it.cv}" srcset="${it.cv.replace(/\.webp$/, "-480.webp")} 480w, ${it.cv} 960w" sizes="(max-width:560px) 48vw, (max-width:1100px) 31vw, 240px" alt="" width="480" height="270" loading="lazy" decoding="async">` : ""}</span>
   <span class="hbc-t"><b class="hbc-n">${esc(it.n)}</b><small>${esc(it.s)}</small>${it.tot ? `<span class="hbc-p" aria-hidden="true"><i style="width:${Math.round(it.done / it.tot * 100)}%"></i></span>` : ""}</span>
   ${it.tot && it.done >= it.tot ? '<span class="hbc-ok">✓ heute</span>' : it.tot && it.done ? `<span class="hbc-ok pr">${n3Dots(it.done, it.tot)}</span>` : ""}</button>`;
+function hbRound() {   // W4: Tagesrunde – alle Tagesrätsel auf einen Blick
+  const its = hubFeat().map(hubItem).filter(it => it && it.tot), ok = its.filter(it => it.done > 0).length;   // zählt wie das Tagesziel: ein gelöstes Rätsel je Spiel
+  if (!its.length) return "";
+  return `<section class="hb-round" aria-label="Tagesrunde"><div class="hb-rh"><b>Tagesrunde</b><span>${ok} von ${its.length} heute gespielt</span><span class="hb-rb" aria-hidden="true"><i style="width:${Math.round(ok / its.length * 100)}%"></i></span></div>
+    <div class="hb-rl">${its.map(it => `<button type="button" class="hb-rc ${it.done >= it.tot ? "ok full" : it.done ? "ok" : ""}" ${it.a} style="--gc:${it.gc}" title="${esc(it.n)}"><b>${esc(it.ico)}</b><span>${esc(it.n)}</span></button>`).join("")}</div></section>`;
+}
 function homeHtml() {
   const f = hubItem(hubFeatured()) || hubItem((GAMES.find(g => !OFF.has(g.id)) || GAMES[0]).id);
   const GON = GAMES.filter(g => !OFF.has(g.id));
@@ -2567,6 +2573,7 @@ function homeHtml() {
       ${nx.length ? `<div><span class="hb-l">${isNew ? "Starte mit …" : "Als Nächstes"}</span><div class="hb-nr">${nx.map(x => `<button type="button" class="hn" ${x.attr} style="--gc:${x.gc}"><span class="gi" aria-hidden="true">${x.img ? `<img src="${x.img}" alt="" width="34" height="34" loading="lazy">` : `<b>${esc(x.ico)}</b>`}</span><span><b>${esc(x.t)}</b><small>${esc(x.s)}</small></span><span class="go2" aria-hidden="true">▶</span></button>`).join("")}</div></div>` : ""}
     </section>
   </div>
+  ${hbRound()}
   <nav class="hb-jump" aria-label="Bereiche">${(rec.length ? [["rec", "Weiterspielen"]] : []).concat([["rate", "Rate-Spiele"], ["day", "Tagesspiele"], ["fr", "Mit Freunden"], ["3d", "3D-Spiele"]]).map(([k, l]) => `<button type="button" data-hbj="${k}">${l}</button>`).join("")}</nav>
   ${rec.length ? sec("rec", "Weiterspielen", "Zuletzt gespielt", rec.map(it => hubCard(it)).join(""), "", "sm") : ""}
   ${sec("rate", "Tägliche Rate-Spiele", `${GON.length} Spiele · ${figs.toLocaleString(uiLoc())} Figuren · jeden Tag neu`, GON.map(g => hubCard(hubItem(g.id))).join(""), "", "rate")}
