@@ -10,7 +10,7 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">"
    über ein Wörterbuch Deutsch → Zielsprache. Platzhalter: Zahlen und mit MK markierte Namen werden zu {0}, {1} … */
 const MK = "⁣", N = v => MK + v + MK;
 const uiLoc = () => { let l = "de"; try { l = I18N.lang || "de"; } catch (e) {} return l === "en" ? (/^en-/i.test(navigator.language || "") ? navigator.language : "en-GB") : ({ de: "de-AT", bks: "hr", es: "es", zh: "zh-CN", ja: "ja" })[l] || "de-AT"; };   // N1: Datum/Zahlen je Sprache
-const LANGS = [["de", "Deutsch", "DE"], ["en", "English", "EN"], ["bks", "Bosanski / Hrvatski / Srpski", "BKS"], ["es", "Español", "ES"], ["zh", "中文（简体）", "中文"], ["ja", "日本語", "日本語"]];
+const LANGS = [["de", "Deutsch", "DE"], ["en", "English", "EN"], ["bks", "B/H/S", "BKS"], ["es", "Español", "ES"], ["zh", "中文（简体）", "中文"], ["ja", "日本語", "日本語"]];
 const I18N = (() => {
   let lang = "de", D = null;
   const cache = new Map(), out = new WeakMap(), orig = new WeakMap(), aorig = new WeakMap(), miss = new Map();
